@@ -1,0 +1,290 @@
+*, ::before, ::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100vh;
+    background-color: #0e0f0f;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    overflow-x: hidden;
+}
+
+a, h1, h2, h3, label, span {
+    color: #f1f1f1;
+}
+
+input {
+    background-color: #0e0f0f;
+    color : #f1f1f1;
+    border: 1px solid #787878;
+    border-radius: 1.5px;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+
+    height: 100%;
+}
+
+.container {
+    display: flex;
+}
+
+.container.column{
+    flex-direction: column;
+}
+
+.container-first {
+    position: absolute;
+    top: 30%;
+    left: 5%;
+}
+
+
+h3 {
+    text-transform: uppercase;
+    font-size:  20px;
+    color: #f1f1f1;
+    font-family: Abril fatface, sans-serif;
+}
+
+.btn-first {
+    border: 2px solid #f1f1f1;
+    outline: none;
+    background: transparent;
+    font-size: 24px; /* Reduce the font size */
+    padding: 15px 20px; /* Adjust padding */
+    width: auto; /* Let the width adjust based on content */
+    color: #f1f1f1;
+    cursor: pointer;
+    border-radius: 20px;
+    text-decoration: none;
+}
+
+.btn-first:nth-child(1){
+    margin-right: 30px;
+}
+
+.btn-first:hover {
+    transition: all 0.3s ease-in-out;
+    background: #16b95275;
+    color: #f1f1f1;
+}
+
+/* Inputs-group */
+
+.inputs-group {
+    padding: 0px 56px 0px 56px;
+}
+
+/* Input-group */
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-top: 16px;
+}
+
+.input-group > label {
+    font-weight: 700;
+}
+
+.input-group > input {
+    margin-top: 8px;
+}
+
+/* Header */
+
+header{
+    display: flex;
+    justify-content: flex-end;
+
+    background-color: #141810;
+    padding : 0% 0% 0% 2.5%;
+}
+
+.header-decoration {
+    margin-right: auto;
+}
+
+img.header-decoration {
+    height: 32px;
+    margin-top: 18px;
+}
+
+/* Navbar */
+
+.navbar ul {
+    list-style-type: none;
+    overflow: hidden;
+}
+
+.navbar li{
+    display: inline-block;
+    padding: 25px;
+}
+
+.navbar a {
+    text-decoration: none;
+}   
+
+a {
+    font-family: Abril fatface, sans-serif;
+    padding: 25px;
+}
+
+a:hover{
+    background-color: #16b95275;
+}
+
+/* Form */
+
+form > button {
+    margin-top: 20px;
+    width: 100%;
+}
+
+/* Accueil */
+
+.accueil-titre {
+    background-color: black;
+    padding : 8% 0% 8% 2.5%;
+}
+
+.accueil-titre h3 {
+    margin-bottom: 20px;
+}
+
+.accueil-information {
+    background-color: grey;
+}
+
+.titre {
+    text-transform: uppercase;
+    font-size: 110px;
+    color: #f1f1f1;
+    font-family: Abril fatface, sans-serif;
+}
+
+.titre span {
+    position: relative;
+}
+
+.titre-image {
+    position: absolute;
+    top: 50%; /* Move the top of the element to the vertical center */
+    left: 50%; /* Move the left side of the element to the horizontal center */
+    transform: translate(-50%, -50%); /* Translate the element back by half of its own width and height */
+    width: 150px;
+    height: 150px;
+}
+
+.l1 {
+    width: 250px;
+    height: 3px;
+    background: #f1f1f1;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.l2 {
+    width: 140px;
+    height: 3px;
+    background: #f1f1f1;
+    border-radius: 5px;
+}
+
+/* Inscription */
+
+.inscription-form {
+    width: 450px;
+    align-self: center;
+}
+
+.inscription-form .form-header-caption {
+    justify-content: space-evenly;
+}
+
+/* Connexion */
+
+.connexion-form > .container {
+    align-items: center;
+}
+
+/* Form */
+
+/* Form-header */
+
+.form-header-caption {
+    justify-content: space-evenly;
+    padding: 16px 0px 16px;
+}
+
+.form-header-caption-step {
+    color: #6a6a6a;
+    font-weight: 400;
+    padding-bottom: 4px;
+}
+
+.form-header-caption-indication {
+    font-weight: 700;
+}
+
+/* Tab */
+
+.tab {
+    display: none;
+    flex-direction: column;
+}
+
+.tab-previous-button{
+    border: none;
+    background: none;
+    padding: 16px;
+}
+
+.tab-previous-button:hover{
+    cursor: pointer;
+}
+
+.tab-previous-button svg {
+    width: 24px;
+    height: 24px;
+    fill:#a7a7a7;
+}
+
+.tab-previous-button:hover svg {
+    fill: #f1f1f1;
+}
+
+/* Progress-bar */
+
+.progress-bar{
+    background-color: #878787; 
+    width: 100%; 
+    border-radius: 15px; 
+}
+
+.progress-bar #etape-1 {
+    width: 20%;
+}
+
+.progress-bar #etape-2 {
+    width: 40%;
+}
+
+.progress-bar-fill{
+    background-color: #169b45; 
+    color: white; 
+    padding: 1%; 
+    text-align: right; 
+    border-radius: 15px; 
+}
+

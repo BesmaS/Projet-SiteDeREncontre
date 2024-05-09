@@ -1,0 +1,8 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>SpotiLove</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="js/common.js"></script>
+</head>
