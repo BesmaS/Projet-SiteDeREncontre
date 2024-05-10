@@ -2,17 +2,7 @@
 <body>
     <div class="wrapper">
         
-        <header class="accueil-header">
-            <div class="header-decoration container column">
-                <div class="l1"></div>
-                <div class="l2"></div>
-            </div>
-            <nav class="navbar">
-                <ul>
-                    <li><a href="accueil.php">Accueil</a></li>
-                </ul>
-            </nav>
-        </header>
+        <?php include __DIR__. "/inc/header.php"?>
         
         <section class="accueil-titre">
             <div class="container column">
