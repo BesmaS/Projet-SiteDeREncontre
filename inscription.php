@@ -95,7 +95,14 @@
                                 </button>
                                 <div class="container column form-inner">
                                     <div class="container column form-header">
-                                        <span class="form-header-caption-step">Étape 1 sur </span>
+                                        <div class="form-header-caption-step">
+                                            <span>Étape 
+                                                <span class="current-tab-text"></span>
+                                                <span> sur 
+                                                    <span class="total-tab-text"></span>
+                                                </span>
+                                            </span>
+                                        </div>
                                         <span class="form-header-caption-indication">Entrez vos infos privés</span>
                                     </div>
                                     <div class="input-group">
@@ -111,7 +118,7 @@
                                         <input type="text" id="inscription-adresse" name="adresse">
                                     </div>
                                     <div class="input-group">
-                                        <label for="inscription-mot-de-passe">Mot de passe</label>
+                                        <label for="inscription-mot-de-passe">Mot de passe <span class="required">*</span></label>
                                         <input type="password" id="inscription-mot-de-passe" name="mot-de-passe">
                                     </div>
                                     <button type="button" class="tab-next-button"></button>
@@ -135,17 +142,24 @@
                                 </button>
                                 <div class="container column form-inner">
                                     <div class="container column form-header">
-                                        <span class="form-header-caption-step">Étape 2 sur </span>
+                                        <div class="form-header-caption-step">
+                                            <span>Étape 
+                                                <span class="current-tab-text"></span>
+                                                <span> sur 
+                                                    <span class="total-tab-text"></span>
+                                                </span>
+                                            </span>
+                                        </div>
                                         <span class="form-header-caption-indication">Créez votre profile</span>
                                     </div>
                                     <div class="input-group">
-                                        <label for="inscription-pseudo">Pseudo</label>
+                                        <label for="inscription-pseudo">Pseudo <span class="required">*</span></label>
                                         <input type="text" id="inscription-pseudo" name="pseudo">
                                     </div>
                                     <div class="input-group">
-                                        <label>Sexe</label>
+                                        <label>Sexe <span class="required">*</span></label>
                                         <div class="container column">
-                                            <div class="container">
+                                            <div class="inputs-radio-group">
                                                 <input type="radio" id="inscription-sexe" name="sexe">
                                                 <label>Homme</label>
                                                 <input type="radio" id="inscription-sexe" name="sexe">
@@ -156,7 +170,7 @@
 
                                     </div>
                                     <div class="input-group">
-                                        <label for="inscription-date-de-naissance">Date de naissance</label>
+                                        <label for="inscription-date-de-naissance">Date de naissance <span class="required">*</span></label>
                                         <input type="date" id="inscription-date-de-naissance" name="date-de-naissance">
                                     </div>
                                     <div class="input-group">
@@ -169,7 +183,7 @@
                         </div>
                     </div>
                     
-                    <!-- <div class="tab">
+                   <div class="tab">
                         <div class="container column">
                             <div class="progress-bar">
                                 <div class="progress-bar-fill"></div>
@@ -184,15 +198,57 @@
                                 </button>
                                 <div class="container column form-inner">
                                     <div class="container column form-header">
-                                        <span class="form-header-caption-step">Étape 3 sur </span>
+                                        <div class="form-header-caption-step">
+                                            <span>Étape 
+                                                <span class="current-tab-text"></span>
+                                                <span> sur 
+                                                    <span class="total-tab-text"></span>
+                                                </span>
+                                            </span>
+                                        </div>
                                         <span class="form-header-caption-indication">Decrivez vos caractéristiques</span>
                                     </div>
-                                    <h2>Description Physique</h2>
+                                    
+                                    <h3>- Description Physique</h3>
                                     <div class="input-group">
                                         <label for="inscription-physique-taille">Taille</label>
-                                        <input type="text" id="inscription-physique-taille" name="physique-taille">
+                                        <div class="inputs-number-group">
+                                            <input type="number" id="inscription-physique-taille" name="physique-taille" value="1" min="0" max="2">
+                                            <span>m</span>
+                                            <input type="number" id="inscription-physique-taille" name="physique-taille" value="60" min="0" max="99">
+                                        </div>                                        
                                     </div>
-                                    <h2>Informations personnelles</h2>
+                                    <div class="input-group">
+                                        <label for="inscription-physique-poids">Poids</label>
+                                        <div class="inputs-number-group">
+                                            <input type="number" id="inscription-physique-poids" name="physique-poids" value="15" min="0">
+                                            <span>kg</span>
+                                        </div>  
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="inscription-physique-couleur-cheveux">Couleur des cheveux</label>
+                                        <select id="inscription-physique-couleur-cheveux" name="physique-couleur-cheveux">
+                                            <option value="noir">Noir</option>
+                                            <option value="brun">Brun</option>
+                                            <option value="auburn">Auburn</option>
+                                            <option value="chatain">Châtain</option>
+                                            <option value="roux">Roux</option>
+                                            <option value="blond-venitien">Blond vénitien</option>
+                                            <option value="blond">Blond</option>
+                                        </select>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="inscription-physique-couleur-yeux">Couleur des yeux</label>
+                                        <select id="inscription-physique-couleur-yeux" name="physique-couleur-yeux">
+                                            <option value="bleu">Bleu</option>
+                                            <option value="marron">Marron</option>
+                                            <option value="gris">Gris</option>
+                                            <option value="vert">Vert</option>
+                                            <option value="noisette">Noisette</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <h3>- Informations personnelles</h3>
                                     <div class="input-group">
                                         <label for="inscription-physique-taille">Centres</label>
                                         <input type="text" id="inscription-physique-taille" name="physique-taille">
@@ -201,11 +257,12 @@
                                 </div>
                             </div>
                         </div>
-                    </div> -->
+                    </div>
                     
                 </form>
             </div>
         </section>
     </div>
-</body>
-</html>
+<?php 
+    require_once __DIR__. "/inc/footer.php";
+?>

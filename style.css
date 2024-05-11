@@ -16,15 +16,7 @@ body {
 
 a, h1, h2, h3, label, span {
     color: #f1f1f1;
-}
-
-input {
-    background-color: #0e0f0f;
-    color : #f1f1f1;
-    border: 1px solid #787878;
-    border-radius: 1.5px;
-
-    padding: 12px 16px 12px 16px;
+    font-family: Abril fatface, sans-serif;
 }
 
 .wrapper {
@@ -49,13 +41,6 @@ input {
 }
 
 
-h3 {
-    text-transform: uppercase;
-    font-size:  20px;
-    color: #f1f1f1;
-    font-family: Abril fatface, sans-serif;
-}
-
 .btn-first {
     border: 2px solid #f1f1f1;
     outline: none;
@@ -79,13 +64,68 @@ h3 {
     color: #f1f1f1;
 }
 
-/* Inputs-group */
+input {
+    background-color: #0e0f0f;
+    color : #f1f1f1;
+    border: 1px solid #787878;
+    border-radius: 1.5px;
+
+    padding: 12px 16px 12px 16px;
+}
+
+select {
+    background-color: #0e0f0f;
+    color : #f1f1f1;
+    border: 1px solid #787878;
+    border-radius: 1.5px;
+
+    padding: 12px 16px 12px 16px;
+}
+
+/* #region Inputs-group */
 
 .inputs-group {
     padding: 0px 56px 0px 56px;
 }
 
-/* Input-group */
+/* #region Inputs-radi-group */
+
+.inputs-radio-group {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.inputs-radio-group label {
+    padding: 0px 24px 0px 12px;
+}
+
+/* #endregion Inputs-radi-group */
+
+/* #region Inputs-number-group */
+
+.inputs-number-group {
+    display: flex;
+    margin-top: 8px;
+    
+}
+
+.inputs-number-group input {
+    padding: 8px 6px;
+    margin-right: 6px;
+    width: 20%;
+}
+
+.inputs-number-group span {
+    margin-right: 6px;
+    align-self: center;
+    font-weight: 400    ;
+}
+
+/* #endregion Inputs-number-group */
+
+/* #endregion Inputs-group */
+
+/* #region Input-group */
 
 .input-group {
     display: flex;
@@ -93,19 +133,18 @@ h3 {
     margin-top: 16px;
 }
 
-.input-group > label {
+.input-group label {
     font-weight: 700;
+    margin-bottom: 8px;
 }
 
-.input-group > input {
-    margin-top: 8px;
+.input-group .required{
+    color: #e91429;
 }
 
-.input-group > .container {
-    margin-top: 8px;
-}
+/* #endregion Input-group */
 
-/* Header */
+/* #region Header */
 
 header{
     display: flex;
@@ -124,11 +163,16 @@ img.header-decoration {
     margin-top: 18px;
 }
 
-/* Navbar */
+/* #endregion Header */
+
+/* #region Navbar */
 
 .navbar ul {
     list-style-type: none;
-    overflow: hidden;
+}
+
+.navbar > ul > *:last-child{
+    margin-right: 25px;
 }
 
 .navbar li{
@@ -138,16 +182,14 @@ img.header-decoration {
 
 .navbar a {
     text-decoration: none;
+    padding: 25px;
 }   
 
-a {
-    font-family: Abril fatface, sans-serif;
-    padding: 25px;
-}
-
-a:hover{
+.navbar a:hover{
     background-color: #16b95275;
 }
+
+/* #endregion Navbar */
 
 /* Form */
 
@@ -155,7 +197,7 @@ form {
     margin-top: 30px;
 }
 
-/* Accueil */
+/* #region Accueil */
 
 .accueil-titre {
     background-color: black;
@@ -170,11 +212,20 @@ form {
     background-color: grey;
 }
 
-.titre {
+/* #endregion Accueil */
+
+/* #region Titre */
+
+.titre h1 {
     text-transform: uppercase;
     font-size: 110px;
     color: #f1f1f1;
     font-family: Abril fatface, sans-serif;
+}
+
+.titre h3 {
+    text-transform: uppercase;
+    font-size:  20px;
 }
 
 .titre span {
@@ -189,6 +240,8 @@ form {
     width: 150px;
     height: 150px;
 }
+
+/* #endregion Titre */
 
 .l1 {
     width: 250px;
@@ -206,7 +259,7 @@ form {
     border-radius: 5px;
 }
 
-/* Inscription */
+/* #region Inscription */
 
 .inscription-form {
     width: 450px;
@@ -218,15 +271,21 @@ form {
     margin-bottom: 40px;
 }
 
-/* Connexion */
+.inscription-form h3 {
+    margin-top: 16px;
+}
+
+/* #endregion Inscription */
+
+/* #region Connexion */
 
 .connexion-form > .container {
     align-items: center;
 }
 
-/* Form */
+/* #endregion Connexion */
 
-/* Form-inner */
+/* #region Form-inner */
 
 .form-inner {
     
@@ -249,6 +308,10 @@ form {
     cursor: pointer;
 }
 
+/* #endregion Form-inner */
+
+/* #region Form-header */
+
 .form-header {
     justify-content: space-evenly;
 }
@@ -259,11 +322,19 @@ form {
     padding-bottom: 4px;
 }
 
+.form-header-caption-step span {
+    color: #6a6a6a;
+    font-weight: 400;
+    padding-bottom: 4px;
+}
+
 .form-header-caption-indication {
     font-weight: 700;
 }
 
-/* Tab */
+/* #endregion Form-header */
+
+/* #region Tab */
 
 .tab {
     display: none;
@@ -291,7 +362,9 @@ form {
     fill: #f1f1f1;
 }
 
-/* Progress-bar */
+/* #endregion Tab */
+
+/* #region Progress-bar */
 
 .progress-bar{
     background-color: #878787; 
@@ -307,7 +380,9 @@ form {
     border-radius: 15px; 
 }
 
-/* Error-message */
+/* #endregion Progress-bar */
+
+/* #region Error-message */
 
 .error-message {
     margin-top: 8px;
@@ -318,4 +393,104 @@ form {
     font-size: 0.875rem;
     font-weight: 400;
 }
+
+.error-message-box {
+    padding: 12px 24px 12px 24px;
+    background-color: #e91429;
+}
+
+.error-message > span {
+    font-size: 0.875rem;
+    font-weight: 400;
+}
+
+/* #endregion Error-message */
+
+/* #region Block */
+
+.block {
+    display: flex;
+    flex-direction: column;
+    background-color: #232323;
+    border-radius: 10px;
+}
+
+.block > *:first-child {
+    padding: 12px 12px 16px 12px;
+}
+
+.block > *:not(:first-child):not(:last-child) {
+    padding: 8px 12px 8px 12px;
+}
+
+.block > *:last-child {
+    padding: 12px 12px 16px 12px;
+}
+
+.block a {
+    display: flex;
+}
+
+.block a:hover {
+    cursor: pointer;
+}
+
+/* #endregion Block */
+
+/* #region Profile */ 
+
+.profile {
+    margin-top: 24px;
+    align-self: center;
+    width: 800px;
+}
+
+/* #endregion Profile */ 
+
+/* #region Dropdown */
+
+.dropbtn {
+    background-color: rgba(0,0,0,.54);
+    color: white;
+    
+    margin-top: 18px;
+
+    width: 32px;
+    height: 32px;
+    
+    border: none;
+    border-radius: 50%;
+
+    cursor: pointer;
+}
+  
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #302c2c;
+    border-radius: 5px;
+    padding: 4px;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #403c3c;
+    border-radius: 5px;
+}
+
+/* #endregion Dropdown */
 

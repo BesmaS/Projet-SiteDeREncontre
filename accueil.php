@@ -5,8 +5,8 @@
         <?php include __DIR__. "/inc/header.php"?>
         
         <section class="accueil-titre">
-            <div class="container column">
-                <h1 class="titre"><span>Sp </span><span> <img src="images/logo-Spotilove.png" class="titre-image"></span>
+            <div class="container column titre">
+                <h1><span>Sp </span><span> <img src="images/logo-Spotilove.png" class="titre-image"></span>
                     <span> tiLove</span></h1>
                 <h3>Trouver votre ame soeur parmis des milliers de profil selon vos gout musicaux</h3>
                 <div class="container">

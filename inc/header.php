@@ -10,6 +10,13 @@
         <nav class="navbar">
             <ul>
                 <li><a href="accueil.php">Accueil</a></li>
+                <div class="dropdown" style="float:right;">
+                    <button class="dropbtn"></button>
+                    <div class="dropdown-content">
+                        <a href="#">Profil</a>
+                        <a href="#">Préférences</a>
+                    </div>
+                </div>
             </ul>
         </nav>
 </header>

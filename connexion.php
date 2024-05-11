@@ -13,7 +13,7 @@
             $email = $_POST["email"];
             $password = $_POST["mot-de-passe"];
 
-            if (array_key_exists($email, $users)) {
+            if (array_key_exists($email, $users) && file_exists($users[$email])) {
                             
                 $userData = json_decode(file_get_contents($users[$email]), true);
                 $passwordHash = $userData["motDePasse"];
@@ -32,7 +32,7 @@
     }
 
     function createErrorMessage(){
-        return "<div class='error-message'><span>test</span</div>";
+        return "<div class='error-message-box'><span>test</span></div>";
     }
 ?>
 <body>
@@ -64,5 +64,6 @@
             </div>
         </section>
     </div>
-</body>
-</html>
+<?php 
+    require_once __DIR__. "/inc/footer.php";
+?>

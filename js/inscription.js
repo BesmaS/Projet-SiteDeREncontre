@@ -24,6 +24,7 @@ $(document).ready(function()
     function afficherOnglet(n) 
     {
         $(".current-tab-text").text(n);
+        $(".total-tab-text").text(tabs.length - 1);
 
         $(tabs[n]).css("display", "flex");
         // ... and fix the Previous/Next buttons:
