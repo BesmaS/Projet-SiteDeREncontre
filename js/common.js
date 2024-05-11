@@ -14,6 +14,16 @@ $(document).ready(function()
             $(".dropdown-content").css("display", "none");
         }
     });
+
+    $('.logout-button').click(function() {
+        makeAjaxRequestPromise('/../php/deconnexion.php', 'POST', null)
+        .then(function(response){
+            window.location.href = 'accueil.php';
+        })
+        .catch(function(error){
+          console.log(error); 
+       });
+    });
 });
 
 function removeErrorMessageBox(id){
@@ -27,4 +37,23 @@ function createErrorMessageBox(message, id){
     var errorMessageBox = $('<div>').addClass("error-message").attr('id', id + '-error-message').html(`<span>${message}</span>`);
     var div = $('#' + id);
     div.after(errorMessageBox);
+}
+
+function makeAjaxRequestPromise(url, method, data, processData = true, contentType = 'application/x-www-form-urlencoded; charset=UTF-8') 
+{
+  return new Promise(function(resolve, reject) {
+    $.ajax({
+      url: url,
+      method: method,
+      data: data,
+      processData: processData,
+      contentType: contentType,
+      success: function(response) {
+        resolve(response);
+      },
+      error: function(xhr, status, error) {
+        reject(error);
+      }
+    });
+  });
 }

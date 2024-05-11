@@ -21,6 +21,27 @@ $(document).ready(function()
         changerOnglet(-1);
     });
 
+    $("#submit-email-button").click(function () {
+        var email = $("#inscription-email").val();
+        // Si l'email est valide, vérifier si l'email n'est pas déja pris
+        if (validateEmail()){
+            makeAjaxRequestPromise('/../php/check_user.php', 'POST', {email : email})
+            .then(function(response) {
+                // Si l'email n'existe pas, passer à l'onglet suivant
+                if (response == false){
+                    changerOnglet(1);
+                }
+                else {
+                    createErrorMessageBox("Cette adresse e-mail est déjà pris", "inscription-email");
+                }
+                
+            })
+            .catch(function(error) {
+                console.log(error); 
+            });
+        }
+    });
+
     function afficherOnglet(n) 
     {
         $(".current-tab-text").text(n);
@@ -62,7 +83,7 @@ $(document).ready(function()
         if (currentTab >= tabs.length) 
         {
             //...the form gets submitted:
-            $("#regForm").submit();
+            submitForm();
             return false;
         }
         // Otherwise, display the correct tab:
@@ -76,9 +97,6 @@ $(document).ready(function()
         var valid = true;
 
         switch (currentTab){
-            case 0:
-                valid = validateEmail();
-                break;
             case 1:
                 valid = validatePassword();
                 break;
@@ -91,6 +109,18 @@ $(document).ready(function()
                 break;
         }
         return valid;
+    }
+
+    function submitForm(){
+        makeAjaxRequestPromise('/../php/inscription.php', 'POST', $('#regForm').serialize())
+        .then(function(response){
+            if (response == true){
+                window.location.href = 'accueil.php';
+            }
+        })
+        .catch(function(error){
+          console.log(error); 
+       });
     }
 
     // $("#inscription-email").blur(function() {
@@ -129,20 +159,19 @@ $(document).ready(function()
             removeErrorMessageBox("inscription-pseudo");
         } else { 
             valid = false;
-            createErrorMessageBox("TEST2", "inscription-pseudo");
+            createErrorMessageBox("Veuillez saisir un pseudo pour votre profil.", "inscription-pseudo");
         } 
         return valid;
     }
 
     function validateGender(){
         let gender = $("#inscription-sexe").is(":checked");
-        console.log(gender);
         if (gender) { 
             valid = true; 
             removeErrorMessageBox("inscription-sexe-error");
         } else { 
             valid = false;
-            createErrorMessageBox("TEST3", "inscription-sexe-error");
+            createErrorMessageBox("Veuillez selectionner votre sexe.", "inscription-sexe-error");
         } 
         return valid;
     }
@@ -154,7 +183,7 @@ $(document).ready(function()
             removeErrorMessageBox("inscription-date-de-naissance");
         } else { 
             valid = false;
-            createErrorMessageBox("TEST4", "inscription-date-de-naissance");
+            createErrorMessageBox("Veuillez saisir votre date de naissance.", "inscription-date-de-naissance");
         } 
         return valid;
     }
