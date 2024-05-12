@@ -19,7 +19,10 @@
                     <span>Modifier le profile</span>
                 </a>
                 <a>
-                    <span>Physique</span>
+                    <span>Caractéristiques</span>
+                </a>
+                <a>
+                    <span>Vos goûts musicaux</span>
                 </a>
             </section>
         </main>

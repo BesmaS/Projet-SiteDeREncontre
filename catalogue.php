@@ -1,6 +1,9 @@
 <?php
     if(session_status() === PHP_SESSION_NONE) session_start();
 
+    $js = array(
+        'js/catalogue.js',
+    );
     require_once __DIR__. "/inc/head.php";
 ?>
 <body>
@@ -16,19 +19,13 @@
             
             <section id="catalogue-right-sidebar" class="block">
                 <h1>Derniers utilisateurs inscrits</h1>
-                <div class="container">
+                <div id="user-cards" class="container">
                     <a class="user-card">
                         <div class="block">
-                            <span>TEST</span>
                         </div>
-                        <span>Pseudo</span>
+                        <span class="user-card-pseudo">Pseudo</span>
                     </a>
-                    <a class="user-card">
-                        <div class="block">
-                            <span>TEST</span>
-                        </div>
-                        <span>Pseudo</span>
-                    </a>
+                    
                 </div>
             </section>
             

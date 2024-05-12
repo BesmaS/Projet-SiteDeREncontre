@@ -48,6 +48,7 @@ function makeAjaxRequestPromise(url, method, data, processData = true, contentTy
       data: data,
       processData: processData,
       contentType: contentType,
+      
       success: function(response) {
         resolve(response);
       },

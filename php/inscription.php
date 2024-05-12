@@ -27,7 +27,8 @@
                 mkdir($newUserDataFolder, 0777, true);
             }
             
-            $newUserJsonPath = "database\\" . $email . "\\data.json"; // Chemin d'accès au fichier JSON pour l'utilisateur
+            // Chemin du fichier json de l'utilisateur, où ces données sont conservées.
+            $newUserJsonPath = "database\\" . $email . "\\data.json"; 
 
             $newUser = array(
                 "email" => $email,
@@ -39,10 +40,14 @@
             );
 
             $_SESSION["email"] = $email;
+
+            // Mettre le chemin du fichier json dans l'email de l'utilisateur dans users.json
             $users[$email] = $newUserJsonPath;
 
-            file_put_contents($usersJsonPath, json_encode($users, JSON_PRETTY_PRINT)); // Enregistre le tableau des utilisateurs dans le fichier users.json
-            file_put_contents($newUserJsonPath, json_encode($newUser, JSON_PRETTY_PRINT)); // Enregistre les données de l'utilisateur dans le fichier JSON correspondant
+            // Ecrire le nouveau utilisateur dans users.json
+            file_put_contents($usersJsonPath, json_encode($users, JSON_PRETTY_PRINT));
+            // Ecrire les données du nouvelle utilisateur dans son fichier json
+            file_put_contents($newUserJsonPath, json_encode($newUser, JSON_PRETTY_PRINT)); 
             
             echo 1;
             return;

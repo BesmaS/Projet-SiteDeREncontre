@@ -31,4 +31,7 @@
             return;
         }
     }
+
+    echo 0;
+    return;
 ?>
