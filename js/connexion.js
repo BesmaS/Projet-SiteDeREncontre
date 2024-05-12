@@ -5,6 +5,9 @@ $(document).ready(function()
         .then(function(response){
             if (response == true){
                 window.location.href = 'profil.php';
+            } 
+            else {
+                $(".error-message-box").css("visibility", "visible");
             }
         })
         .catch(function(error){

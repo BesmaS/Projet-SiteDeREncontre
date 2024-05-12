@@ -19,7 +19,7 @@
                         <div class="container column form-header">
                             <h1>Connexion</h1>
                         </div>
-                        <?php if (isset($errorMessage)) { echo "$errorMessage"; } ?>
+                        <div class='error-message-box'></div>
                         <div class="input-group">
                             <label for="inscription-email">Adresse mail</label>
                             <input type="email" id="inscription-email" name="email" placeholder="Adresse e-mail">

@@ -15,7 +15,21 @@
             </section>
             
             <section id="catalogue-right-sidebar" class="block">
-                <span>TEST</span>
+                <h1>Derniers utilisateurs inscrits</h1>
+                <div class="container">
+                    <a class="user-card">
+                        <div class="block">
+                            <span>TEST</span>
+                        </div>
+                        <span>Pseudo</span>
+                    </a>
+                    <a class="user-card">
+                        <div class="block">
+                            <span>TEST</span>
+                        </div>
+                        <span>Pseudo</span>
+                    </a>
+                </div>
             </section>
             
         </main>

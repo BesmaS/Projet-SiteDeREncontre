@@ -27,20 +27,10 @@
                     echo 1;
                     return;
                 }
-                else {
-                    $errorMessage = createErrorMessage();
-                }
-            }
-            else {
-                $errorMessage = createErrorMessage();
             }
         }
     }
 
     echo 0;
     return;
-
-    function createErrorMessage(){
-        return "<div class='error-message-box'><span>test</span></div>";
-    }
 ?>

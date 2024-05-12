@@ -12,7 +12,7 @@
         
         <?php include __DIR__. "/inc/header.php"?>
         
-        <main class="profile">
+        <main class="profil">
             <section id="profil-compte" class="block">
                 <h1>Compte</h1>
                 <a>
