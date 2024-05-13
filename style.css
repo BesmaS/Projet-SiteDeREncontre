@@ -99,7 +99,7 @@ select {
     padding: 0px 56px 0px 56px;
 }
 
-/* #region Inputs-radi-group */
+/* #region Inputs-radio-group */
 
 .inputs-radio-group {
     display: flex;
@@ -111,7 +111,7 @@ select {
     margin-bottom: 0px !important;
 }
 
-/* #endregion Inputs-radi-group */
+/* #endregion Inputs-radio-group */
 
 /* #region Inputs-number-group */
 
@@ -155,6 +155,22 @@ select {
 }
 
 /* #endregion Input-group */
+
+.input-checkbox-group {
+    display: flex;
+}
+
+.input-checkbox-group input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+.input-checkbox-group:not(:last-child){
+    margin-bottom: 8px;
+}
+
+.input-checkbox-group label {
+    margin-bottom: 0 !important;
+}
 
 /* #region Header */
 

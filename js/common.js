@@ -39,6 +39,15 @@ function createErrorMessageBox(message, id){
     div.after(errorMessageBox);
 }
 
+function getAge(inputDate){
+  var currentDate = new Date(); // Récupère la date actuelle
+
+  var ageInMilliseconds = currentDate - inputDate; // Calcul la différence entre deux dates en milliseconds
+  var ageInYears = ageInMilliseconds / 1000 / 60 / 60 / 24 / 365.25; // Converti les milliseconds en années
+
+  return ageInYears;
+}
+
 function makeAjaxRequestPromise(url, method, data, processData = true, contentType = 'application/x-www-form-urlencoded; charset=UTF-8') 
 {
   return new Promise(function(resolve, reject) {

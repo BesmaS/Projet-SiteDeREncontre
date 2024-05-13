@@ -35,8 +35,19 @@
                 "nom" => strtoupper($_POST["nom"]),
                 "prenom" => ucfirst($_POST["prenom"]),
                 "adresse" => $_POST["adresse"],
-                "motDePasse" => password_hash($_POST["mot-de-passe"], PASSWORD_DEFAULT),
+                "mot-de-passe" => password_hash($_POST["mot-de-passe"], PASSWORD_DEFAULT),
                 "pseudo" => $_POST["pseudo"],
+                "sexe" => $_POST["sexe"],
+                "date-de-naissance" => $_POST["date-de-naissance"],
+                "profession" => $_POST["profession"],
+                "poids" => $_POST["poids"],
+                "couleur-cheveux" => $_POST["couleur-cheveux"],
+                "couleur-yeux" => $_POST["couleur-yeux"],
+                "message-accueil" => $_POST["message-accueil"],
+                "citation" => $_POST["citation"],
+                "traits" => $_POST["traits"],
+                "centres" => $_POST["centres"],
+                "musiques" => $_POST["musique"]
             );
 
             $_SESSION["email"] = $email;

@@ -14,7 +14,7 @@
         <main id="catalogue">
             
             <section id="catalogue-left-sidebar" class="block">
-                <span>TEST</span>
+                <h1>Rechercher</h1>
             </section>
             
             <section id="catalogue-right-sidebar" class="block">

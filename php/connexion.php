@@ -19,7 +19,7 @@
             if (array_key_exists($email, $users) && file_exists($userJsonPath)) {
                 
                 $userData = json_decode(file_get_contents($userJsonPath), true);
-                $passwordHash = $userData["motDePasse"];
+                $passwordHash = $userData["mot-de-passe"];
                 
                 // Vérifie si le mot de passe correspond bien
                 if (password_verify($password, $passwordHash)) {

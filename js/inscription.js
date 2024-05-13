@@ -94,21 +94,32 @@ $(document).ready(function()
     /////
 
     function validateForm(){
-        var valid = true;
+        // Liste pour vérifier si tout est valide
+        let valids = [];
 
         switch (currentTab){
             case 1:
-                valid = validatePassword();
+                valids.push(validatePassword());
                 break;
             case 2:
-                valid = validatePseudo();
-                valid = validateGender();
-                valid = validateBirthYear();
+                valids.push(validatePseudo());
+                valids.push(validateGender());
+                valids.push(validateBirthYear());
                 break;
             default:
                 break;
         }
-        return valid;
+
+        // Regarder si tout est valide
+        for (let i = 0; i < valids.length; i++) {
+            // Si non, on retourne que l'utilisateur ne peut pas aller au suivant
+            if (valids[i] == false){
+                return false;
+            }
+        }        
+
+        // Tout est valide, l'utilisateur peut aller au suivant
+        return true;
     }
 
     function submitForm(){
@@ -165,25 +176,33 @@ $(document).ready(function()
     }
 
     function validateGender(){
-        let gender = $("#inscription-sexe").is(":checked");
-        if (gender) { 
+        let gender = $("input[type='radio'][name='sexe']:checked").length;
+        if (gender > 0) { 
             valid = true; 
-            removeErrorMessageBox("inscription-sexe-error");
+            removeErrorMessageBox("inscription-sexe");
         } else { 
             valid = false;
-            createErrorMessageBox("Veuillez selectionner votre sexe.", "inscription-sexe-error");
+            createErrorMessageBox("Veuillez selectionner votre sexe.", "inscription-sexe");
         } 
         return valid;
     }
 
     function validateBirthYear(){
         let birthYear = $("#inscription-date-de-naissance").val();
-        if (birthYear != "") { 
+        var date = new Date(birthYear);
+
+        if (birthYear == "") {
+            valid = false;
+            createErrorMessageBox("Veuillez saisir votre date de naissance.", "inscription-date-de-naissance"); 
+        } else if (getAge(date) > 100){
+            valid = false;
+            createErrorMessageBox("Vous devez avoir moins de 100 ans.", "inscription-date-de-naissance"); 
+        } else if (getAge(date) < 18){
+            valid = false;
+            createErrorMessageBox("Vous devez avoir plus de 18 ans.", "inscription-date-de-naissance"); 
+        } else { 
             valid = true; 
             removeErrorMessageBox("inscription-date-de-naissance");
-        } else { 
-            valid = false;
-            createErrorMessageBox("Veuillez saisir votre date de naissance.", "inscription-date-de-naissance");
         } 
         return valid;
     }
