@@ -214,12 +214,12 @@ img.header-decoration {
 }
 
 .navbar > ul > *:last-child{
-    margin-right: 25px;
+    margin: 0px 25px;
 }
 
 .navbar li{
     display: inline-block;
-    padding: 25px;
+    padding: 25px 0px;
 }
 
 .navbar a {
@@ -508,6 +508,11 @@ img.header-decoration {
 
     cursor: pointer;
 }
+
+.dropbtn .profil-picture {
+    width: 32px;
+    height: 32px;
+}
   
 .dropdown {
     position: relative;
@@ -601,8 +606,15 @@ img.header-decoration {
 .user-card .block {
     height: fit-content;
     background-color: black;
-    padding: 64px;
+    padding: 16px;
     margin-bottom: 8px;
+}
+
+.user-card .profil-picture {
+    width: 128px;
+    height: 128px;
+    object-fit: cover;
+    border-radius: 10%;
 }
 
 .user-card span {

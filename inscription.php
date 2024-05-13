@@ -80,7 +80,7 @@
                                         <label for="inscription-mot-de-passe">Mot de passe <span class="required">*</span></label>
                                         <input type="password" id="inscription-mot-de-passe" name="mot-de-passe">
                                     </div>
-                                    <button class="form-button" type="button" class="tab-next-button"></button>
+                                    <button type="button" class="tab-next-button form-button"></button>
                                 </div>
                             </div>
                         </div>
@@ -111,10 +111,12 @@
                                         </div>
                                         <span class="form-header-caption-indication">Créez votre profile</span>
                                     </div>
+                                    
                                     <div class="input-group">
                                         <label for="inscription-pseudo">Pseudo <span class="required">*</span></label>
                                         <input type="text" id="inscription-pseudo" name="pseudo">
                                     </div>
+                                    
                                     <div class="input-group">
                                         <label>Sexe <span class="required">*</span></label>
                                         <div class="container column">
@@ -125,17 +127,18 @@
                                                 <label for="femme">Femme</label>
                                             </div>
                                         </div>
-
                                     </div>
+                                    
                                     <div class="input-group">
                                         <label for="inscription-date-de-naissance">Date de naissance <span class="required">*</span></label>
                                         <input type="date" id="inscription-date-de-naissance" name="date-de-naissance">
                                     </div>
+                                    
                                     <div class="input-group">
                                         <label for="inscription-profession">Profession</label>
                                         <input type="text" id="inscription-profession" name="profession">
                                     </div>
-                                    <button class="form-button" type="button" class="tab-next-button"></button>
+                                    <button type="button" class="tab-next-button form-button"></button>
                                 </div>
                             </div>
                         </div>
@@ -208,7 +211,7 @@
                                         </select>
                                     </div>
                             
-                                    <button class="form-button" type="button" class="tab-next-button"></button>
+                                    <button type="button" class="tab-next-button form-button"></button>
                                 </div>
                             </div>
                         </div>
@@ -340,8 +343,19 @@
                                         <textarea id="inscription-caracteristique-centres" name="centres"></textarea>
                                     </div>
 
+                                    <div class="input-group">
+                                        <label>Fumeur ?</label>
+                                        <div class="container column">
+                                            <div class="inputs-radio-group" id="fumeur">
+                                                <input type="radio" id="fumeur-oui" name="fumeur">
+                                                <label for="fumeur-oui">Oui</label>
+                                                <input type="radio" id="fumeur-non" name="fumeur" checked="checked">
+                                                <label for="fumeur-non">Non</label>
+                                            </div>
+                                        </div>
+                                    </div>
 
-                                    <button class="form-button" type="button" class="tab-next-button"></button>
+                                    <button type="button" class="tab-next-button form-button"></button>
                                 </div>
                             </div>
                         </div>
@@ -420,11 +434,9 @@
                                         <div class="input-checkbox-group">
                                             <input type="checkbox" id="punk" name="musique[]" value="Punk"><label for="punk">Punk</label>
                                         </div>
-
                                     </div>
 
-
-                                    <button type="button" class="tab-next-button"></button>
+                                    <button type="button" class="tab-next-button form-button"></button>
                                 </div>
                             </div>
                         </div>

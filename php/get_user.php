@@ -8,7 +8,7 @@
             // Ouvrir le fichier json
             $userData = file_get_contents($userJsonPath);
 
-            echo json_encode($userData);
+            echo $userData;
             return;
         }
     }

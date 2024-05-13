@@ -10,8 +10,8 @@ $(document).ready(function()
                 console.log("Path to data file:", userJsonPath);
                 makeAjaxRequestPromise('/../php/get_user.php', 'POST', {userJsonPath : userJsonPath})
                 .then(function(response) {
-                    console.log(JSON.parse(response));
-                    createUserCard(email);
+                    var user = JSON.parse(response);
+                    createUserCard(user);
                 })
                 .catch(function(error) {
                     console.log(error); 
@@ -22,14 +22,27 @@ $(document).ready(function()
     .catch(error => {
         console.error('Error:', error);
     });
+
+
 });
 
 function createUserCard(email){
     var userCardElement = $("<a>").addClass("user-card");
+    var userCardPseudoElement = $("<span>").addClass("user-card-pseudo");
+
+    userCardPseudoElement.text(email.pseudo);
 
     var blockElement = $('<div>').addClass("block");
 
+    var profilPictureElement = $('<img>').addClass("profil-picture");
+    profilPictureElement.attr("src", "images/default-profil-picture.png")
+
+    //
+
     userCardElement.append(blockElement);
+    userCardElement.append(userCardPseudoElement);
+
+    blockElement.append(profilPictureElement);
 
     // Append the anchor element to the document body or any other parent element
     $('#user-cards').append(userCardElement);

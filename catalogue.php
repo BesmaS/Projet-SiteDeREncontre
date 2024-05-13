@@ -24,25 +24,25 @@
                     <div class="dropdown-tab-content" id="recherche-physique-dropdown-tab-content">
 
                         <div class="input-group">
-                            <label for="inscription-physique-taille">Taille</label>
+                            <label for="taille">Taille</label>
                             <div class="inputs-number-group">
-                                <input type="number" id="inscription-physique-taille-1" name="taille-1" value="1" min="0" max="2"/>
+                                <input type="number" id="taille-1" name="taille-1" value="1" min="0" max="2"/>
                                 <span>m</span>
-                                <input type="number" id="inscription-physique-taille-2" name="taille-2" value="60" min="0" max="99"/>
+                                <input type="number" id="taille-2" name="taille-2" value="60" min="0" max="99"/>
                             </div>                                        
                         </div>
 
                         <div class="input-group">
-                            <label for="inscription-physique-poids">Poids</label>
+                            <label for="poids">Poids</label>
                             <div class="inputs-number-group">
-                                <input type="number" id="inscription-physique-poids" name="poids" value="15" min="0"/>
+                                <input type="number" id="poids" name="poids" value="15" min="0"/>
                                 <span>kg</span>
                             </div>  
                         </div>
 
                         <div class="input-group">
-                            <label for="inscription-physique-couleur-cheveux">Couleur des cheveux</label>
-                            <select id="inscription-physique-couleur-cheveux" name="couleur-cheveux">
+                            <label for="couleur-cheveux">Couleur des cheveux</label>
+                            <select id="couleur-cheveux" name="couleur-cheveux">
                                 <option value="Noir">Noir</option>
                                 <option value="Brun">Brun</option>
                                 <option value="Auburn">Auburn</option>
@@ -54,8 +54,8 @@
                         </div>
 
                         <div class="input-group">
-                            <label for="inscription-physique-couleur-yeux">Couleur des yeux</label>
-                            <select id="inscription-physique-couleur-yeux" name="couleur-yeux">
+                            <label for="couleur-yeux">Couleur des yeux</label>
+                            <select id="couleur-yeux" name="couleur-yeux">
                                 <option value="Bleu">Bleu</option>
                                 <option value="Marron">Marron</option>
                                 <option value="Gris">Gris</option>
@@ -154,6 +154,18 @@
                             </div>
 
                         </div>
+
+                        <div class="input-group">
+                            <label>Fumeur</label>
+                            <div class="container column">
+                                <div class="inputs-radio-group" id="fumeur">
+                                    <input type="radio" id="fumeur-oui" name="fumeur">
+                                    <label for="fumeur-oui">Oui</label>
+                                    <input type="radio" id="fumeur-non" name="fumeur" checked="checked">
+                                    <label for="fumeur-non">Non</label>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     
                     <a class="dropdown-tab" id="recherche-musique"> Catégorie de musique
@@ -223,6 +235,7 @@
                 <div id="user-cards" class="container">
                     <a class="user-card">
                         <div class="block">
+                            <img class="profil-picture" src="images/default-profil-picture.png"/>
                         </div>
                         <span class="user-card-pseudo">Pseudo</span>
                     </a>

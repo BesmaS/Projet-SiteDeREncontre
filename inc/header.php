@@ -11,8 +11,11 @@
             <ul>
                 <li><a href="accueil.php">Accueil</a></li>
                 <?php if (isset($_SESSION["email"])) : ?>
+                    <li><a href="catalogue.php">Catalogue</a></li>
                     <div class="dropdown" style="float:right;">
-                        <button class="dropbtn"></button>
+                        <button class="dropbtn">
+                            <!-- <img class="profil-picture" src="images/default-profil-picture.png"/> -->
+                        </button>
                         <div class="dropdown-content">
                             <a href="apercu.php">Profil</a>
                             <a href="#">Préférences</a>
