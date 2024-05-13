@@ -11,7 +11,7 @@
         
         <?php include __DIR__. "/inc/header.php"?>
         
-        <section class="connexion-form">
+        <main id="connexion-form">
             <div class="container column">
                 
                 <form id="regForm">
@@ -28,12 +28,13 @@
                             <label for="inscription-mot-de-passe">Mot de passe</label>
                             <input type="password" id="inscription-mot-de-passe" name="mot-de-passe" placeholder="Mot de passe">
                         </div>
-                        <button type="button" id="login-button">Suivant</button>
+                        <button class="form-button" type="button" id="login-button">Suivant</button>
                     </div>
                 </form>
 
             </div>
-        </section>
+        </main>
+
     </div>
 <?php 
     require_once __DIR__. "/inc/footer.php";

@@ -11,7 +11,7 @@
         
         <?php include __DIR__. "/inc/header.php"?>
         
-        <section class="inscription-form">
+        <main id="inscription-form">
             <div class="container column">
                 <form id="regForm">
 
@@ -33,7 +33,7 @@
                                         <label for="inscription-email">Adresse e-mail</label>
                                         <input type="email" id="inscription-email" name="email" placeholder="nom@domaine.com">
                                     </div>
-                                    <button type="button" id="submit-email-button">Suivant</button>
+                                    <button class="form-button" type="button" id="submit-email-button">Suivant</button>
                                 </div>
                             </div>
                         </div>
@@ -80,7 +80,7 @@
                                         <label for="inscription-mot-de-passe">Mot de passe <span class="required">*</span></label>
                                         <input type="password" id="inscription-mot-de-passe" name="mot-de-passe">
                                     </div>
-                                    <button type="button" class="tab-next-button"></button>
+                                    <button class="form-button" type="button" class="tab-next-button"></button>
                                 </div>
                             </div>
                         </div>
@@ -135,7 +135,7 @@
                                         <label for="inscription-profession">Profession</label>
                                         <input type="text" id="inscription-profession" name="profession">
                                     </div>
-                                    <button type="button" class="tab-next-button"></button>
+                                    <button class="form-button" type="button" class="tab-next-button"></button>
                                 </div>
                             </div>
                         </div>
@@ -208,7 +208,7 @@
                                         </select>
                                     </div>
                             
-                                    <button type="button" class="tab-next-button"></button>
+                                    <button class="form-button" type="button" class="tab-next-button"></button>
                                 </div>
                             </div>
                         </div>
@@ -341,7 +341,7 @@
                                     </div>
 
 
-                                    <button type="button" class="tab-next-button"></button>
+                                    <button class="form-button" type="button" class="tab-next-button"></button>
                                 </div>
                             </div>
                         </div>
@@ -432,7 +432,7 @@
                     
                 </form>
             </div>
-        </section>
+        </main>
     </div>
 <?php 
     require_once __DIR__. "/inc/footer.php";

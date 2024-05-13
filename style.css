@@ -7,7 +7,7 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     height: 100vh;
-    background-color: #0e0f0f;
+    background-color: black;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
@@ -178,7 +178,7 @@ header{
     display: flex;
     justify-content: flex-end;
 
-    background-color: #141810;
+    background-color: #141414;
     padding : 0% 0% 0% 2.5%;
 }
 
@@ -232,12 +232,6 @@ img.header-decoration {
 }
 
 /* #endregion Navbar */
-
-/* Form */
-
-form {
-    margin-top: 30px;
-}
 
 /* #region Accueil */
 
@@ -303,17 +297,18 @@ form {
 
 /* #region Inscription */
 
-.inscription-form {
+#inscription-form {
+    margin-top: 30px;
     width: 450px;
     align-self: center;
 }
 
-.inscription-form h1 {
+#inscription-form h1 {
     font-size: 48px;
     margin-bottom: 40px;
 }
 
-.inscription-form h3 {
+#inscription-form h3 {
     margin-top: 16px;
 }
 
@@ -321,7 +316,11 @@ form {
 
 /* #region Connexion */
 
-.connexion-form > .container {
+#connexion-form {
+    margin-top: 30px;
+}
+
+#connexion-form > .container {
     align-items: center;
 }
 
@@ -333,21 +332,6 @@ form {
     
     padding: 16px 0px 16px;
     width: 324px;
-}
-
-.form-inner button {
-    margin-top: 20px;
-
-    font-weight: 700;
-
-    border: 0px;
-    border-radius: 20px;
-    
-    padding : 16px 32px 16px 32px;
-
-    background-color: #1ed760;
-
-    cursor: pointer;
 }
 
 /* #endregion Form-inner */
@@ -375,6 +359,21 @@ form {
 }
 
 /* #endregion Form-header */
+
+.form-button {
+    margin-top: 20px;
+
+    font-weight: 700;
+
+    border: 0px;
+    border-radius: 20px;
+    
+    padding : 16px 32px 16px 32px;
+
+    background-color: #1ed760;
+
+    cursor: pointer;
+}
 
 /* #region Tab */
 
@@ -459,19 +458,19 @@ form {
     border-radius: 10px;
 }
 
-.profil .block > *:first-child {
+.apercu .block > *:first-child {
     padding: 12px 12px 16px 12px;
 }
 
-.profil .block > *:not(:first-child):not(:last-child) {
+.apercu .block > *:not(:first-child):not(:last-child) {
     padding: 8px 12px 8px 12px;
 }
 
-.profil .block > *:last-child {
+.apercu .block > *:last-child {
     padding: 12px 12px 16px 12px;
 }
 
-.profil  .block a {
+.apercu  .block a {
     display: flex;
 }
 
@@ -481,9 +480,9 @@ form {
 
 /* #endregion Block */
 
-/* #region Profil */ 
+/* #region Apercu */ 
 
-.profil {
+.apercu {
     display: flex;
     flex-direction: column;
     margin-top: 24px;
@@ -491,7 +490,7 @@ form {
     width: 800px;
 }
 
-/* #endregion Profil */ 
+/* #endregion Apercu */ 
 
 /* #region Dropdown */
 
@@ -519,7 +518,7 @@ form {
     display: none;
     position: absolute;
     right: 0;
-    background-color: #302c2c;
+    background-color: #2c2c2c;
     border-radius: 5px;
     padding: 4px;
     min-width: 160px;
@@ -534,7 +533,7 @@ form {
 }
 
 .dropdown-content a:hover {
-    background-color: #403c3c;
+    background-color: #3c3c3c;
     border-radius: 5px;
 }
 
@@ -545,21 +544,48 @@ form {
     height: 100%;
 }
 
-#catalogue-left-sidebar{
+
+#catalogue h1 {
+    padding: 16px;
+}
+
+#catalogue-left-sidebar {
     margin: 8px 0px 8px 8px;
+    width: 20%;
+    overflow: scroll;
+    background-color: #121212;
+}
+
+#catalogue-left-sidebar a {
+    padding: 16px;
+
+    background-color: #242424;
+}
+
+#catalogue-left-sidebar form {
+    height: 100%;
+}
+
+#catalogue-left-sidebar .form-button {
+    margin: auto 16px 8px 16px;
+}
+
+#catalogue-left-sidebar .dropdown-tab-content {
+    margin: 16px;
+}
+
+#catalogue-left-sidebar .dropdown-tab-content > .input-group:first-child {
+    margin-top: 0px;
 }
 
 #catalogue-right-sidebar {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    width: 100%;
+    width: 80%;
     margin: 8px;
 }
 
-#catalogue > .block {
-    padding: 16px;
-}
 
 .user-card {
     display: flex;
@@ -570,10 +596,6 @@ form {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-}
-
-.user-card:first-child {
-    margin-left: 0;
 }
 
 .user-card .block {
@@ -587,3 +609,10 @@ form {
     max-width: inherit;
     align-self: center;
 }
+
+.dropdown-tab-content {
+    display: flex;
+    flex-direction: column;
+    visibility: collapse;
+}
+

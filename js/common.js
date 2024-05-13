@@ -24,6 +24,18 @@ $(document).ready(function()
           console.log(error); 
        });
     });
+
+    $(".dropdown-tab").click(function() {
+        var dropdownTabId = $(this).attr('id');
+        var dropDownTabContent = "#" + dropdownTabId + "-dropdown-tab-content";
+        if ($(dropDownTabContent).css("visibility") !== "visible"){
+          $(dropDownTabContent).css("visibility", "visible");
+        }
+        else {
+          $(dropDownTabContent).css("visibility", "collapse");
+        }
+        
+    });
 });
 
 function removeErrorMessageBox(id){

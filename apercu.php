@@ -12,8 +12,8 @@
         
         <?php include __DIR__. "/inc/header.php"?>
         
-        <main class="profil">
-            <section id="profil-compte" class="block">
+        <main class="apercu">
+            <section id="apercu-compte" class="block">
                 <h1>Compte</h1>
                 <a>
                     <span>Modifier le profile</span>
