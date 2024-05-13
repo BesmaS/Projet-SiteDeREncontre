@@ -14,7 +14,7 @@
                     <div class="dropdown" style="float:right;">
                         <button class="dropbtn"></button>
                         <div class="dropdown-content">
-                            <a href="profil.php">Profil</a>
+                            <a href="apercu.php">Profil</a>
                             <a href="#">Préférences</a>
                             <a class="logout-button">Déconnexion</a>
                         </div>
