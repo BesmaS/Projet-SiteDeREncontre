@@ -1,4 +1,7 @@
 <?php
+    // check_user.php
+    // Vérifie si un utilisateur existe, c'est-à-dire si son email est déjà pris
+
     if(session_status() === PHP_SESSION_NONE) session_start();
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {

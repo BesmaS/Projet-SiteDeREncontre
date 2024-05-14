@@ -1,4 +1,7 @@
 <?php
+    // inscription.php
+    // Inscrit un nouveau utilisateur dans le site
+
     if(session_status() === PHP_SESSION_NONE) session_start();
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -40,6 +43,7 @@
                 "sexe" => $_POST["sexe"],
                 "date-de-naissance" => $_POST["date-de-naissance"],
                 "profession" => $_POST["profession"],
+                "taille" => $_POST["taille-m"] . $_POST["taille-cm"],
                 "poids" => $_POST["poids"],
                 "couleur-cheveux" => $_POST["couleur-cheveux"],
                 "couleur-yeux" => $_POST["couleur-yeux"],

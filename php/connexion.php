@@ -1,4 +1,8 @@
 <?php
+    // connexion.php
+    // Vérifie si l'email existe bien dans la base de données
+    // Si oui, alors le programme vérifie si le mot de passe entrée est le bon
+
     if(session_status() === PHP_SESSION_NONE) session_start();
 
     if ($_SERVER["REQUEST_METHOD"] === "POST") {

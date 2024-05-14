@@ -1,4 +1,7 @@
 <?php
+    // get_files.php
+    // Récupère les nom des fichiers dans un dossier
+
     if(session_status() === PHP_SESSION_NONE) session_start();
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
