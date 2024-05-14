@@ -112,6 +112,9 @@ $(document).ready(function()
                 valids.push(validateGender());
                 valids.push(validateBirthYear());
                 break;
+            case 5:
+                valids.push(validateMusics());
+                break;
             default:
                 break;
         }
@@ -144,6 +147,8 @@ $(document).ready(function()
     //     validateEmail();
     // }); 
     function validateEmail(){
+        var valid = false;
+
         let regex =  
         /^([_\-\.0-9a-zA-Z]+)@([_\-\.0-9a-zA-Z]+)\.([a-zA-Z]){2,7}$/; 
         let email = $("#inscription-email").val();
@@ -158,18 +163,22 @@ $(document).ready(function()
     }
 
     function validatePassword(){
+        var valid = false;
+
         let password = $("#inscription-mot-de-passe").val();
         if (password != "") { 
             valid = true; 
             removeErrorMessageBox("inscription-mot-de-passe");
         } else { 
             valid = false;
-            createErrorMessageBox("TEST", "inscription-mot-de-passe");
+            createErrorMessageBox("Veuillez saisir un mot de passe.", "inscription-mot-de-passe");
         } 
         return valid;
     }
 
     function validatePseudo(){
+        var valid = false;
+
         let pseudo = $("#inscription-pseudo").val();
         if (pseudo != "") { 
             valid = true; 
@@ -182,6 +191,8 @@ $(document).ready(function()
     }
 
     function validateGender(){
+        var valid = false;
+
         let gender = $("input[type='radio'][name='sexe']:checked").length;
         if (gender > 0) { 
             valid = true; 
@@ -194,9 +205,11 @@ $(document).ready(function()
     }
 
     function validateBirthYear(){
+        var valid = false;
+
         let birthYear = $("#inscription-date-de-naissance").val();
         var date = new Date(birthYear);
-
+        
         if (birthYear == "") {
             valid = false;
             createErrorMessageBox("Veuillez saisir votre date de naissance.", "inscription-date-de-naissance"); 
@@ -210,6 +223,23 @@ $(document).ready(function()
             valid = true; 
             removeErrorMessageBox("inscription-date-de-naissance");
         } 
+        return valid;
+    }
+
+    function validateMusics(){
+        var valid = false;
+
+        var checkboxes = $('input[name="musique[]"]');
+      
+        for (var i = 0; i < checkboxes.length; i++) {
+          if (checkboxes[i].checked) {
+                removeErrorMessageBox("musique"); 
+                return true;
+          }
+        }
+
+        createErrorMessageBox("Veuillez choisir au moins une catégorie.", "musique");
+
         return valid;
     }
 });
