@@ -47,6 +47,7 @@
                 "citation" => $_POST["citation"],
                 "traits" => $_POST["traits"],
                 "centres" => $_POST["centres"],
+                "fumeur" => $_POST["fumeur"],
                 "musiques" => $_POST["musique"]
             );
 

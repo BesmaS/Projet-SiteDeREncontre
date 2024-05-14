@@ -1,5 +1,6 @@
 $(document).ready(function() 
 {
+    // Event lorsque l'utilisateur clique sur le button du ménu déroulant
     $('.dropbtn').click(function() {
         if ($('.dropdown-content').css('display') === 'block'){
             $(".dropdown-content").css("display", "none");
@@ -9,15 +10,20 @@ $(document).ready(function()
         }
     });
 
+    // Event lorsque utilisateur clique n'importe où sur la fenetre
     $(window).click(function(e) {
+        // Si l'object cliqué n'est pas "dropbtn", cacher le dropdown-content
         if (!$(e.target).hasClass('dropbtn')) {
             $(".dropdown-content").css("display", "none");
         }
     });
 
+    // Event pour le button de deconnexion
     $('.logout-button').click(function() {
+        // Appel ajax pour appeler la fonction PHP
         makeAjaxRequestPromise('/../php/deconnexion.php', 'POST', null)
         .then(function(response){
+            // Retour à la page d'accueil
             window.location.href = 'accueil.php';
         })
         .catch(function(error){
@@ -38,12 +44,17 @@ $(document).ready(function()
     });
 });
 
+// Enlève le message d'erreur à partir d'une ID html
+// id : l'ID html, l'élément qu'on veut supprimer
 function removeErrorMessageBox(id){
     if($("#" + id + "-error-message").length) {
         $("#" + id + "-error-message").remove();
     }
 }
 
+// Créer un message d'erreur
+// message : Le message que l'on veut afficher
+// id : L'élément parent dans lequel on veut afficher ce message
 function createErrorMessageBox(message, id){
     removeErrorMessageBox(id);
     var errorMessageBox = $('<div>').addClass("error-message").attr('id', id + '-error-message').html(`<span>${message}</span>`);
@@ -51,6 +62,8 @@ function createErrorMessageBox(message, id){
     div.after(errorMessageBox);
 }
 
+// Calcul l'age à partir d'une date de modèle dd-mm-yyyy
+// inputDate : La date dans lequel on veut obtenir l'age
 function getAge(inputDate){
   var currentDate = new Date(); // Récupère la date actuelle
 

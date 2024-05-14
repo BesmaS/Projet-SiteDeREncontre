@@ -121,9 +121,9 @@
                                         <label>Sexe <span class="required">*</span></label>
                                         <div class="container column">
                                             <div class="inputs-radio-group" id="inscription-sexe">
-                                                <input type="radio" id="homme" name="sexe">
+                                                <input type="radio" id="homme" name="sexe" value="Homme">
                                                 <label for="homme">Homme</label>
-                                                <input type="radio" id="femme" name="sexe">
+                                                <input type="radio" id="femme" name="sexe" value="Femme">
                                                 <label for="femme">Femme</label>
                                             </div>
                                         </div>
@@ -347,9 +347,9 @@
                                         <label>Fumeur ?</label>
                                         <div class="container column">
                                             <div class="inputs-radio-group" id="fumeur">
-                                                <input type="radio" id="fumeur-oui" name="fumeur">
+                                                <input type="radio" id="fumeur-oui" name="fumeur" value="Oui">
                                                 <label for="fumeur-oui">Oui</label>
-                                                <input type="radio" id="fumeur-non" name="fumeur" checked="checked">
+                                                <input type="radio" id="fumeur-non" name="fumeur" value="Non" checked="checked">
                                                 <label for="fumeur-non">Non</label>
                                             </div>
                                         </div>

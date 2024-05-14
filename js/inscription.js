@@ -21,6 +21,7 @@ $(document).ready(function()
         changerOnglet(-1);
     });
 
+    // Event pour le button lorsque l'utilisateur entre l'email
     $("#submit-email-button").click(function () {
         var email = $("#inscription-email").val();
         // Si l'email est valide, vérifier si l'email n'est pas déja pris
@@ -42,6 +43,8 @@ $(document).ready(function()
         }
     });
 
+    // Affiche le contenu d'un onglet n, avec n le numéro de l'onglet
+    // n : le numéro de l'onglet que l'on veut afficher
     function afficherOnglet(n) 
     {
         $(".current-tab-text").text(n);
@@ -63,11 +66,13 @@ $(document).ready(function()
         // Mettre à jour la barre de progression
         var progressBar = $(".progress-bar-fill")
         if( progressBar.length ){
-            var percentage = n / progressBar.length * 100;            
+            var percentage = n / progressBar.length * 100;
+            // n - 1, puisqu'on ne compte pas le premier onglet        
             $(progressBar[n - 1]).css("width", percentage + "%");
         }
     }
 
+    // n : le numéro de l'onglet que l'on veut afficher
     function changerOnglet(n) 
     {
         // Exit the function if any field in the current tab is invalid:
@@ -75,19 +80,20 @@ $(document).ready(function()
             return false;
         } 
         
-        // Hide the current tab:
+        // Cache l'onglet actuelle:
         $(tabs[currentTab]).css("display", "none");
-        // Increase or decrease the current tab by 1:
+        // Augmente ou dimininue le buméro de l'onglet actuelle:
         currentTab += n;
-        // if you have reached the end of the form... :
+        
+        // A la fin du formulaire
         if (currentTab >= tabs.length) 
         {
-            //...the form gets submitted:
+            // Poster le formulaire
             submitForm();
             return false;
         }
-        // Otherwise, display the correct tab:
         
+        // Sinon, afficher une autre onglet
         afficherOnglet(currentTab);
     }
 
