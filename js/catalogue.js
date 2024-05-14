@@ -32,12 +32,13 @@ $(document).ready(function()
         for (let email in users) {
             if (users.hasOwnProperty(email)) {
                 var userJsonPath = users[email];
-                console.log("Path to data file:", userJsonPath);
                 // Récuperer les données de l'utilisateur pour creer le user-card
-                var promise = makeAjaxRequestPromise('/../php/get_user.php', 'POST', {userJsonPath: userJsonPath})
+                var promise = makeAjaxRequestPromise('/../php/get_user.php', 'POST', {email : email, userJsonPath: userJsonPath})
                 .then(function(response) {
-                    var user = JSON.parse(response);
-                    createUserCard(user);
+                    if (response != false){
+                        var user = JSON.parse(response);
+                        createUserCard(user);
+                    }
                 })
                 .catch(function(error) {
                     console.log(error);
