@@ -10,6 +10,7 @@
         <nav class="navbar">
             <ul>
                 <li><a href="accueil.php">Accueil</a></li>
+                <!-- Si l'utilisateur est connecté -->
                 <?php if (isset($_SESSION["email"])) : ?>
                     <li><a href="catalogue.php">Catalogue</a></li>
                     <div class="dropdown" style="float:right;">
