@@ -13,10 +13,10 @@
         
         <main id="catalogue">
             
-            <section id="catalogue-left-sidebar" class="block">
+            <section id="catalogue__left-sidebar" class="block">
                 <h1>Rechercher</h1>
 
-                <form class="container column">
+                <form id="search-form" class="container column">
 
                     <a class="dropdown-tab" id="recherche-physique"> Physique
                     </a>
@@ -33,7 +33,7 @@
                         </div>
 
                         <div class="input-group">
-                            <label for="poids">Poids</label>
+                            <label for="poids">Poids minimum</label>
                             <div class="inputs-number-group">
                                 <input type="number" id="poids" name="poids" value="15" min="0"/>
                                 <span>kg</span>
@@ -159,9 +159,9 @@
                             <label>Fumeur</label>
                             <div class="container column">
                                 <div class="inputs-radio-group" id="fumeur">
-                                    <input type="radio" id="fumeur-oui" name="fumeur">
+                                    <input type="radio" id="fumeur-oui" name="fumeur" value="Oui">
                                     <label for="fumeur-oui">Oui</label>
-                                    <input type="radio" id="fumeur-non" name="fumeur" checked="checked">
+                                    <input type="radio" id="fumeur-non" name="fumeur" value="Non" checked="checked">
                                     <label for="fumeur-non">Non</label>
                                 </div>
                             </div>
@@ -230,17 +230,37 @@
 
             </section>
             
-            <section id="catalogue-right-sidebar" class="block">
-                <h1>Derniers utilisateurs inscrits</h1>
-                <div id="user-cards" class="container">
-                    <a class="user-card">
-                        <div class="block">
-                            <img class="profil-picture" src="images/default-profil-picture.png"/>
-                        </div>
-                        <span class="user-card-pseudo">Pseudo</span>
-                    </a>
-                    
+            <section id="catalogue__right-sidebar" class="block">
+                
+                <div>
+                    <h1>Derniers utilisateurs inscrits</h1>
+                    <div id="user-cards" class="container">
+                        <a class="user-card">
+                            <div class="block">
+                                <img class="profil-picture" src="images/default-profil-picture.png"/>
+                            </div>
+                            <span class="user-card-pseudo">Pseudo</span>
+                        </a>
+                    </div>
                 </div>
+                
+                <!-- <div class="catalogue__user-information">
+                    
+                    <div class="catalogue__user-information-header">
+                        <div class="container">
+                            <img class="profil-picture" src="images/default-profil-picture.png"/>
+                            <div class="container column">
+                                <h1>Pseudo</h1>
+                                <div class="container">
+                                    <h3>Nom</h3><h3>Prenom</h3>
+                                </div>
+                                <h3>Age</h3>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div> -->
+
             </section>
             
         </main>
