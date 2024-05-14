@@ -15,6 +15,7 @@
             <div class="container column">
                 <form id="regForm">
 
+                    <!-- 0 -->
                     <div class="tab">
                         <div class="container column">
                             <div class="container">
@@ -39,6 +40,7 @@
                         </div>
                     </div>
 
+                    <!-- 1 -->
                     <div class="tab">
                         <div class="container column">
                             <div class="progress-bar">
@@ -86,6 +88,7 @@
                         </div>
                     </div>
 
+                    <!-- 2 Profile-->
                     <div class="tab">
                         <div class="container column">
                             <div class="progress-bar">
@@ -143,7 +146,8 @@
                             </div>
                         </div>
                     </div>
-
+                    
+                    <!-- 3 Physique -->
                     <div class="tab">
                         <div class="container column">
                             <div class="progress-bar">
@@ -171,25 +175,25 @@
                                     </div>
                                     
                                     <div class="input-group">
-                                        <label for="inscription-physique-taille">Taille</label>
+                                        <label for="taille">Taille</label>
                                         <div class="inputs-number-group">
-                                            <input type="number" id="inscription-physique-taille-1" name="taille-1" value="1" min="0" max="2"/>
+                                            <input type="number" id="taille-m" name="taille-m" value="1" min="0" max="2"/>
                                             <span>m</span>
-                                            <input type="number" id="inscription-physique-taille-2" name="taille-2" value="60" min="0" max="99"/>
+                                            <input type="number" id="taille-cm" name="taille-cm" value="60" min="0" max="99"/>
                                         </div>                                        
                                     </div>
                                     
                                     <div class="input-group">
-                                        <label for="inscription-physique-poids">Poids</label>
+                                        <label for="poids">Poids</label>
                                         <div class="inputs-number-group">
-                                            <input type="number" id="inscription-physique-poids" name="poids" value="15" min="0"/>
+                                            <input type="number" id="poids" name="poids" value="15" min="0"/>
                                             <span>kg</span>
                                         </div>  
                                     </div>
                                     
                                     <div class="input-group">
-                                        <label for="inscription-physique-couleur-cheveux">Couleur des cheveux</label>
-                                        <select id="inscription-physique-couleur-cheveux" name="couleur-cheveux">
+                                        <label for="couleur-cheveux">Couleur des cheveux</label>
+                                        <select id="couleur-cheveux" name="couleur-cheveux">
                                             <option value="Noir">Noir</option>
                                             <option value="Brun">Brun</option>
                                             <option value="Auburn">Auburn</option>
@@ -201,8 +205,8 @@
                                     </div>
                                     
                                     <div class="input-group">
-                                        <label for="inscription-physique-couleur-yeux">Couleur des yeux</label>
-                                        <select id="inscription-physique-couleur-yeux" name="couleur-yeux">
+                                        <label for="couleur-yeux">Couleur des yeux</label>
+                                        <select id="couleur-yeux" name="couleur-yeux">
                                             <option value="Bleu">Bleu</option>
                                             <option value="Marron">Marron</option>
                                             <option value="Gris">Gris</option>
@@ -217,6 +221,7 @@
                         </div>
                     </div>
 
+                    <!-- 4 -->
                     <div class="tab">
                         <div class="container column">
                             <div class="progress-bar">
@@ -244,13 +249,13 @@
                                     </div>
 
                                     <div class="input-group">
-                                        <label for="inscription-caracteristique-message-accueil">Ecrivez une message d'accueil</label>
-                                        <input type="text" id="inscription-caracteristique-message-accueil" name="message-accueil"/>
+                                        <label for="message-accueil">Ecrivez une message d'accueil</label>
+                                        <input type="text" id="message-accueil" name="message-accueil"/>
                                     </div>
 
                                     <div class="input-group">
-                                        <label for="inscription-caracteristique-citation">Mettez une citation</label>
-                                        <input type="text" id="inscription-caracteristique-citation" name="citation"/>
+                                        <label for="citation">Mettez une citation</label>
+                                        <input type="text" id="citation" name="citation"/>
                                     </div>
                                     
                                     <div class="input-group">
@@ -339,8 +344,8 @@
                                     </div>
 
                                     <div class="input-group">
-                                        <label for="inscription-caracteristique-centres">Parler de vos centres</label>
-                                        <textarea id="inscription-caracteristique-centres" name="centres"></textarea>
+                                        <label for="centres">Parler de vos centres</label>
+                                        <textarea id="centres" name="centres"></textarea>
                                     </div>
 
                                     <div class="input-group">
@@ -361,6 +366,7 @@
                         </div>
                     </div>
 
+                    <!-- 5 -->
                     <div class="tab">
                         <div class="container column">
                             <div class="progress-bar">
@@ -387,7 +393,7 @@
                                         <span class="form-header-caption-indication">Decrivez vos goûts musicaux</span>
                                     </div>
 
-                                    <div class="input-group">
+                                    <div class="input-group" id="musique">
                                         <label>Choissisez vos types de musique favoris</label>
                                         <div class="input-checkbox-group">
                                             <input type="checkbox" id="rock" name="musique[]" value="Rock"><label for="rock">Rock</label>
@@ -441,7 +447,6 @@
                             </div>
                         </div>
                     </div>
-                    
                 </form>
             </div>
         </main>

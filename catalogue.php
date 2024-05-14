@@ -18,6 +18,14 @@
 
                 <form id="search-form" class="container column">
 
+                    <a class="dropdown-tab" id="recherche-general"> Général
+                    </a>
+
+                    <div class="dropdown-tab-content" id="recherche-general-dropdown-tab-content">
+
+                    </div>
+
+                    
                     <a class="dropdown-tab" id="recherche-physique"> Physique
                     </a>
 
@@ -33,7 +41,7 @@
                         </div>
 
                         <div class="input-group">
-                            <label for="poids">Poids minimum</label>
+                            <label for="poids">Poids</label>
                             <div class="inputs-number-group">
                                 <input type="number" id="poids" name="poids" value="15" min="0"/>
                                 <span>kg</span>
@@ -251,9 +259,6 @@
                             <img class="profil-picture" src="images/default-profil-picture.png"/>
                             <div class="container column">
                                 <h1>Pseudo</h1>
-                                <div class="container">
-                                    <h3>Nom</h3><h3>Prenom</h3>
-                                </div>
                                 <h3>Age</h3>
                             </div>
                         </div>

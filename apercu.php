@@ -15,14 +15,21 @@
         <main class="apercu">
             <section id="apercu-compte" class="block">
                 <h1>Compte</h1>
+                
                 <a>
                     <span>Modifier le profile</span>
                 </a>
+                
                 <a>
                     <span>Caractéristiques</span>
                 </a>
+                
                 <a>
                     <span>Vos goûts musicaux</span>
+                </a>
+
+                <a>
+                    <span>Mes abonnements</span>
                 </a>
             </section>
         </main>
