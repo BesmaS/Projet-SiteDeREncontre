@@ -1,5 +1,12 @@
 $(document).ready(function() 
 {
+    $("#messagerie__input-text").keypress(function (e) {
+        var code = (e.keyCode ? e.keyCode : e.which);
+        if (code == 13) {
+            createNewMessage();
+        }
+    });
+
     getUsersProfile();
 
     function getUsersProfile()
@@ -68,5 +75,21 @@ $(document).ready(function()
         // Append the anchor element to the document body or any other parent element
         $('#profiles').append(userProfileElement);
     }
+
+    function createNewMessage(){        
+        var newMessageElement = $('<div>').addClass("new-message");
+
+        var newMessageContentElement = $('<div>').addClass("new-message-content");
+        newMessageElement.append(newMessageContentElement);
+
+        var newMessageContentTextElement = $('<span>').addClass("new-message-content-text");
+        newMessageContentTextElement.text($("#messagerie__input-text").val());
+        newMessageContentElement.append(newMessageContentTextElement);
+        
+        // Append the anchor element to the document body or any other parent element
+        $('#chat-log').append(newMessageElement);
+    }
 });
+
+
 
