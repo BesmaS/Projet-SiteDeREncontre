@@ -1,13 +1,15 @@
 $(document).ready(function() 
 {
     $('#login-button').click(function() {
+        showLoader("login-button", "loader--1");
         makeAjaxRequestPromise('/../php/connexion.php', 'POST', $('#regForm').serialize())
         .then(function(response){
             if (response == true){
-                window.location.href = 'profil.php';
+                removeLoader("login-button");
+                window.location.href = 'apercu.php';
             } 
             else {
-                $(".error-message-box").css("visibility", "visible");
+                removeLoader("login-button");
             }
         })
         .catch(function(error){

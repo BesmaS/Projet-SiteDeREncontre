@@ -1,6 +1,10 @@
 <?php
     if(session_status() === PHP_SESSION_NONE) session_start();
 
+    if (isset($_SESSION["email"])){
+        header("Location: accueil.php");
+    }
+
     $js = array(
         'js/connexion.js',
     );
@@ -19,7 +23,6 @@
                         <div class="container column form-header">
                             <h1>Connexion</h1>
                         </div>
-                        <div class='error-message-box'></div>
                         <div class="input-group">
                             <label for="inscription-email">Adresse mail</label>
                             <input type="email" id="inscription-email" name="email" placeholder="Adresse e-mail">

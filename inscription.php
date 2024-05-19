@@ -1,6 +1,10 @@
 <?php 
     if(session_status() === PHP_SESSION_NONE) session_start();
 
+    if (isset($_SESSION["email"])){
+        header("Location: accueil.php");
+    }
+
     $js = array(
         'js/inscription.js',
     );
@@ -15,7 +19,7 @@
             <div class="container column">
                 <form id="regForm">
 
-                    <!-- 0 -->
+                    <!-- 0 Email-->
                     <div class="tab">
                         <div class="container column">
                             <div class="container">
@@ -40,7 +44,7 @@
                         </div>
                     </div>
 
-                    <!-- 1 -->
+                    <!-- 1 Infos privés-->
                     <div class="tab">
                         <div class="container column">
                             <div class="progress-bar">

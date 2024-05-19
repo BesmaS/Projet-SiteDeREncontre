@@ -64,6 +64,8 @@ a, h1, h2, h3, label, span {
     color: #f1f1f1;
 }
 
+/* region Form */
+
 form input {
     background-color: #0e0f0f;
     color : #f1f1f1;
@@ -83,6 +85,13 @@ form textarea {
 
     resize: none;
 }
+
+form .loader--1 {
+    align-self: center;
+    margin-top: 20px;
+}
+
+/* #endregion Form */
 
 select {
     background-color: #0e0f0f;
@@ -637,6 +646,7 @@ img.header-decoration {
     height: 128px;
     object-fit: cover;
     border-radius: 10%;
+    align-self: center;
 }
 
 .user-card span {
@@ -715,4 +725,71 @@ img.header-decoration {
     width: 100%;
 }
 
+.new-message {
+    display: flex;
+    margin-bottom: 4px;
+}
+
+.new-message:not(:first-child) {
+    padding-left: 80px;
+}
+
+.new-message:hover{
+    background-color: #0f0f0f;
+}
+
+.new-message-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.new-message-content-header {
+    display: flex;
+}
+
+.new-message-content-header + .new-message-content-text {
+    margin-top: 16px;
+}
+
+.new-message .profil-picture {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    align-self: center;
+    margin: 0 16px;
+}
+
 /* #endregion Messagerie */
+
+/* #region Loader */
+
+/* https://cssloaders.github.io/ */
+
+.loader--1 {
+    position: relative;
+    width: 85px;
+    height: 50px;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(#FFF 50px, transparent 0),
+                        linear-gradient(#FFF 50px, transparent 0),
+                        linear-gradient(#FFF 50px, transparent 0),
+                        linear-gradient(#FFF 50px, transparent 0),
+                        linear-gradient(#FFF 50px, transparent 0),
+                        linear-gradient(#FFF 50px, transparent 0);
+    background-position: 0px center, 15px center, 30px center, 45px center, 60px center, 75px center, 90px center;
+    animation: rikSpikeRoll 0.65s linear infinite alternate;
+}
+
+@keyframes rikSpikeRoll {
+    0% { background-size: 10px 3px;}
+    16% { background-size: 10px 50px, 10px 3px, 10px 3px, 10px 3px, 10px 3px, 10px 3px}
+    33% { background-size: 10px 30px, 10px 50px, 10px 3px, 10px 3px, 10px 3px, 10px 3px}
+    50% { background-size: 10px 10px, 10px 30px, 10px 50px, 10px 3px, 10px 3px, 10px 3px}
+    66% { background-size: 10px 3px, 10px 10px, 10px 30px, 10px 50px, 10px 3px, 10px 3px}
+    83% { background-size: 10px 3px, 10px 3px,  10px 10px, 10px 30px, 10px 50px, 10px 3px}
+    100% { background-size: 10px 3px, 10px 3px, 10px 3px,  10px 10px, 10px 30px, 10px 50px}
+}
+
+/* #endregion Loader */
+    
+  

@@ -62,6 +62,20 @@ function createErrorMessageBox(message, id){
     div.after(errorMessageBox);
 }
 
+function removeLoader(id){
+  $("#" + id).css("visibility", "visible");
+  if($("#" + id + "-loader").length) {
+      
+      $("#" + id + "-loader").remove();
+  }
+}
+
+function showLoader(id, loaderClass){
+  $("#" + id).css("visibility", "collapse");
+  var loader = $("<span>").addClass(loaderClass).attr("id", id + "-loader");
+  $('#' + id).after(loader);
+}
+
 // Calcul l'age à partir d'une date de modèle dd-mm-yyyy
 // inputDate : La date dans lequel on veut obtenir l'age
 function getAge(inputDate){

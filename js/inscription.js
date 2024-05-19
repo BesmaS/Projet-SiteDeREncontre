@@ -26,13 +26,16 @@ $(document).ready(function()
         var email = $("#inscription-email").val();
         // Si l'email est valide, vérifier si l'email n'est pas déja pris
         if (validateEmail()){
+            showLoader("submit-email-button", "loader--1");
             makeAjaxRequestPromise('/../php/check_user.php', 'POST', {email : email})
             .then(function(response) {
                 // Si l'email n'existe pas, passer à l'onglet suivant
                 if (response == false){
+                    removeLoader("submit-email-button");
                     changerOnglet(1);
                 }
                 else {
+                    removeLoader("submit-email-button");
                     createErrorMessageBox("Cette adresse e-mail est déjà pris", "inscription-email");
                 }
                 
@@ -53,7 +56,7 @@ $(document).ready(function()
         $(tabs[n]).css("display", "flex");
         // ... and fix the Previous/Next buttons:
         if (n == 0) {
-            $(".tab-previous-button").css("visibility", "hidden");
+            $(".tab-previous-button").css("visibility", "collapse");
         } else {
             $(".tab-previous-button").css("visibility", "visible");
         }
