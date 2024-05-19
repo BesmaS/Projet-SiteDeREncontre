@@ -35,6 +35,7 @@ $(document).ready(function()
                 // Récuperer les données de l'utilisateur pour creer le user-card
                 var promise = makeAjaxRequestPromise('/../php/get_user.php', 'POST', {email : email, userJsonPath: userJsonPath})
                 .then(function(response) {
+                    console.log(response);
                     if (response != false){
                         var user = JSON.parse(response);
                         createUserCard(user);
@@ -61,15 +62,20 @@ $(document).ready(function()
         var userCardElement = $("<a>").addClass("user-card");
         userCardElement.attr("id", user.email);
         
-        // User Card elements
+        /// User Card elements
         var blockElement = $('<div>').addClass("block");
     
         userCardElement.append(blockElement);
     
-        var pseudoElement = $("<span>").addClass("user-card-pseudo");
+        var pseudoElement = $("<span>").addClass("user-card__pseudo");
         pseudoElement.text(user.pseudo);
     
         userCardElement.append(pseudoElement);
+
+        var ageElement = $("<span>").addClass("user-card__age");
+        ageElement.text(user.age);
+
+        userCardElement.append(ageElement);
     
         // Block elements
         var profilPictureElement = $('<img>').addClass("profil-picture");

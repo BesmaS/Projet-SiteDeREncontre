@@ -23,6 +23,18 @@
 
                     <div class="dropdown-tab-content" id="recherche-general-dropdown-tab-content">
 
+                        <div class="input-group">
+                            <label>Age</label>
+                            <div class="inputs-number-group">
+                                <input type="number" id="age-minimum" name="age-minimum" value="18" min="18" max="100"/>
+                                <span>Minimum</span>
+                            </div>  
+                            <div class="inputs-number-group">
+                                <input type="number" id="age-maximum" name="age-maximum" value="100" min="18" max="100"/>
+                                <span>Maximum</span>
+                            </div>  
+                        </div>
+
                     </div>
 
                     
@@ -41,11 +53,15 @@
                         </div>
 
                         <div class="input-group">
-                            <label for="poids">Poids</label>
+                            <label>Poids</label>
                             <div class="inputs-number-group">
-                                <input type="number" id="poids" name="poids" value="15" min="0"/>
-                                <span>kg</span>
-                            </div>  
+                                <input type="number" id="poids-minimum" name="poids-minimum" value="15" min="0"/>
+                                <span>kg Minimum</span>
+                            </div> 
+                            <div class="inputs-number-group">
+                                <input type="number" id="poids-maximum" name="poids-maximum" value="15" min="0"/>
+                                <span>kg Maximum</span>
+                            </div>   
                         </div>
 
                         <div class="input-group">
@@ -247,7 +263,8 @@
                             <div class="block">
                                 <img class="profil-picture" src="images/default-profil-picture.png"/>
                             </div>
-                            <span class="user-card-pseudo">Pseudo</span>
+                            <span class="user-card__pseudo">Pseudo</span>
+                            <span class="user-card__age">Age</span>
                         </a>
                     </div>
                 </div>
