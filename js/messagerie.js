@@ -3,7 +3,13 @@ $(document).ready(function()
     $("#messagerie__input-text").keypress(function (e) {
         var code = (e.keyCode ? e.keyCode : e.which);
         if (code == 13) {
+            if($("#messages-" +getCurrentDate()).length == 0) {
+                createMessageDate();
+            }
+
+            
             createNewMessage();
+            $("#messagerie__input-text").val("");
         }
     });
 
@@ -74,6 +80,22 @@ $(document).ready(function()
 
         // Append the anchor element to the document body or any other parent element
         $('#profiles').append(userProfileElement);
+    }
+
+    function createMessageDate(){
+        var messageDateElement = $('<div>').addClass("message-date").attr("id", "messages-" + getCurrentDate());
+
+        var ligneElement1 = $('<div>').addClass("ligne");
+        messageDateElement.append(ligneElement1);
+
+        var dateElement = $('<span>').addClass("date");
+        dateElement.text(getCurrentDate());
+        messageDateElement.append(dateElement);
+
+        var ligneElement2 = $('<div>').addClass("ligne");
+        messageDateElement.append(ligneElement2);
+
+        $('#chat-log').append(messageDateElement);
     }
 
     function createNewMessage(){        

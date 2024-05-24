@@ -87,6 +87,32 @@ function getAge(inputDate){
   return ageInYears;
 }
 
+function getCurrentDate() {
+  var today = new Date();
+  var day = String(today.getDate()).padStart(2, '0');
+  var month = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
+  var year = today.getFullYear();
+
+  return day + '-' + month + '-' + year;
+}
+
+function getMonthFromDate(dateStr) {
+  const datePattern = /^(\d{2})-(\d{2})-(\d{4})$/;
+  const match = dateStr.match(datePattern);
+  var month = parseInt(match[2], 10);
+
+  var monthNames = [
+    "Janvier", "Février", "Mars", "Avril", "Mai", "Juin",
+    "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"
+  ];
+
+  if (match) {
+      return monthNames[month];
+  } else {
+      return null;
+  }
+}
+
 function makeAjaxRequestPromise(url, method, data, processData = true, contentType = 'application/x-www-form-urlencoded; charset=UTF-8') 
 {
   return new Promise(function(resolve, reject) {

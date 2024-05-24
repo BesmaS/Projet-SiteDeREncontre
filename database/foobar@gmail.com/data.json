@@ -1,0 +1,25 @@
+{
+    "email": "foobar@gmail.com",
+    "nom": "",
+    "prenom": "",
+    "adresse": "",
+    "mot-de-passe": "$2y$10$6A2l1iw2Wu9JLXyv5d344unNFjxIYnqJEFM.iz.80QEbnX0bd2tsa",
+    "pseudo": "Foo",
+    "sexe": "Homme",
+    "date-de-naissance": "2003-01-22",
+    "profession": "",
+    "taille": "160",
+    "poids": "15",
+    "couleur-cheveux": "Noir",
+    "couleur-yeux": "Bleu",
+    "message-accueil": "",
+    "citation": "",
+    "traits": null,
+    "centres": "",
+    "fumeur": "Non",
+    "musiques": [
+        "Reggaeton"
+    ],
+    "date-abonemment": "",
+    "abonne": "non"
+}
