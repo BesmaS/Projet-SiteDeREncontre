@@ -29,9 +29,15 @@
             if (!is_dir($newUserDataFolder)) {
                 mkdir($newUserDataFolder, 0777, true);
             }
+
+            $messagesFolder = $newUserDataFolder . "\\messages";
+            // Créer le dossier "messages" pour l'utilisateur
+            if (!is_dir($messagesFolder)) {
+                mkdir($messagesFolder, 0777, true);
+            }
             
             // Chemin du fichier json de l'utilisateur, où ces données sont conservées.
-            $newUserJsonPath = "database\\" . $email . "\\data.json"; 
+            $newUserJsonPath = $newUserDataFolder . "\\data.json"; 
 
             $newUser = array(
                 "email" => $email,
@@ -52,7 +58,9 @@
                 "traits" => $_POST["traits"],
                 "centres" => $_POST["centres"],
                 "fumeur" => $_POST["fumeur"],
-                "musiques" => $_POST["musique"]
+                "musiques" => $_POST["musique"],
+                "date-abonemment" => "",
+                "abonne" => "non",
             );
 
             $_SESSION["email"] = $email;

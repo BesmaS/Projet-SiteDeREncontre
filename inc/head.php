@@ -17,3 +17,4 @@
                 printf('<script src="%s"></script>', $path);
     ?>
 </head>
+<body>
