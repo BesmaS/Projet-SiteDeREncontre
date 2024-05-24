@@ -249,36 +249,63 @@
 
         
 
-    </section>
-    
-    <section id="catalogue__right-sidebar" class="block">
-        
-        <div>
-            <h1>Derniers utilisateurs inscrits</h1>
-            <div id="user-cards" class="container">
-                <a class="user-card">
-                    <div class="block">
-                        <img class="profil-picture" src="images/default-profil-picture.png"/>
-                    </div>
-                    <span class="user-card__pseudo">Pseudo</span>
-                    <span class="user-card__age">Age</span>
-                </a>
-            </div>
+            </section>
+            
+            <section id="catalogue__right-sidebar" class="block">
+                
+            <div>
+                    <h1>Derniers utilisateurs inscrits</h1>
+                    <?php
+                     // Lire les données des utilisateurs à partir du fichier users.json
+                    $usersData = file_get_contents('php/database/users.json');
+                    $users = json_decode($usersData, true);
+
+                    // Initialiser un tableau pour stocker les profils des utilisateurs
+                    $userProfiles = [];
+
+                    // Parcourir chaque utilisateur et lire ses données à partir de son fichier JSON
+                    foreach ($users as $email => $userJsonPath) {
+                        $userData = file_get_contents('php/' . $userJsonPath);
+                        $user = json_decode($userData, true);
+
+                    // Ajouter le profil de l'utilisateur au tableau
+                     $userProfiles[] = [
+                       
+                        'pseudo' => $user['pseudo'],
+                        'age' => $user['date-de-naissance'] // Vous devrez calculer l'âge à partir de la date de naissance
+                    ];
+                }
+        ?>
+
+        <div id="user-cards" class="container">
+            <?php
+            foreach ($userProfiles as $profile) {
+                echo '<a class="user-card">';
+                echo '<div class="block">';
+                echo '<img class="profil-picture" src="' . $profile['profil_picture'] . '"/>';
+                echo '</div>';
+                echo '<span class="user-card__pseudo">' . $profile['pseudo'] . '</span>';
+                echo '<span class="user-card__age">' . $profile['age'] . '</span>';
+                echo '</a>';
+            }
+            ?>
         </div>
-        
-        <!-- <div class="catalogue__user-information">
-            
-            <div class="catalogue__user-information-header">
-                <div class="container">
-                    <img class="profil-picture" src="images/default-profil-picture.png"/>
-                    <div class="container column">
-                        <h1>Pseudo</h1>
-                        <h3>Age</h3>
+    </div>
+
+                
+                <!-- <div class="catalogue__user-information">
+                    
+                    <div class="catalogue__user-information-header">
+                        <div class="container">
+                            <img class="profil-picture" src="images/default-profil-picture.png"/>
+                            <div class="container column">
+                                <h1>Pseudo</h1>
+                                <h3>Age</h3>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            
-        </div> -->
+                    
+                </div> -->
 
     </section>
     
