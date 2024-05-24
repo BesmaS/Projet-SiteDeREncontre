@@ -46,27 +46,24 @@
         }
     </style>
 </head>
-<body>
-<?php include __DIR__ . "/inc/header.php" ?>
-    
-    <div class="wrapper">
-       
+<?php require_once __DIR__. "/inc/header.php"; ?>
+
 <main class="apercu">
     <section id="apercu-compte" class="block">
     <h1>Profil</h1>
 
-<div class="profile-container">
-    <div class="profile-picture">
-       
+    <div class="profile-container">
+        <div class="profile-picture">
+        
+        </div>
+        <div class="profile-details">
+            <h2 class="pseudo"><?php echo htmlspecialchars($user['pseudo']); ?></h2>
+            <p><strong>Date de naissance:</strong> <?php echo htmlspecialchars($user['date-de-naissance']); ?></p>
+            <p><strong>Profession:</strong> <?php echo htmlspecialchars($user['profession']); ?></p>
+            <p><strong>Message d'accueil:</strong> <?php echo htmlspecialchars($user['message-accueil']); ?></p>
+            <p><strong>Citation:</strong> <?php echo htmlspecialchars($user['citation']); ?></p>
+        </div>
     </div>
-    <div class="profile-details">
-        <h2 class="pseudo"><?php echo htmlspecialchars($user['pseudo']); ?></h2>
-        <p><strong>Date de naissance:</strong> <?php echo htmlspecialchars($user['date-de-naissance']); ?></p>
-        <p><strong>Profession:</strong> <?php echo htmlspecialchars($user['profession']); ?></p>
-        <p><strong>Message d'accueil:</strong> <?php echo htmlspecialchars($user['message-accueil']); ?></p>
-        <p><strong>Citation:</strong> <?php echo htmlspecialchars($user['citation']); ?></p>
-    </div>
-</div>
     <h1>Compte</h1>
 
         <a href="modifierprofile.php">
@@ -87,7 +84,4 @@
     </section>
 </main>
 
-    </div>
-<?php 
-    require_once __DIR__. "/inc/footer.php";
-?>
+<?php require_once __DIR__. "/inc/footer.php"; ?>

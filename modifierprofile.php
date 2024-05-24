@@ -16,23 +16,16 @@
         die("Erreur lors de la lecture des données utilisateur.");
     }
 ?>
-<body>
-<?php include __DIR__. "/inc/header.php"?>
+<?php require_once __DIR__. "/inc/header.php"; ?>
 
-    <div class="wrapper">
+<main class="profil">
+    <h1>Edit Profile</h1>
+    <form action="update_profile.php" method="post">
+        <label for="prenom">First Name:</label>
+        <input type="text" id="prenom" name="prenom" value="<?php echo $currentUser['prenom']; ?>">
 
-   
-        
-        <main class="profil">
-            <h1>Edit Profile</h1>
-            <form action="update_profile.php" method="post">
-                <label for="prenom">First Name:</label>
-                <input type="text" id="prenom" name="prenom" value="<?php echo $currentUser['prenom']; ?>">
+        <input type="submit" value="Update Profile">
+    </form>
+</main>
 
-                <input type="submit" value="Update Profile">
-            </form>
-        </main>
-    </div>
-<?php 
-    require_once __DIR__. "/inc/footer.php";
-?>
+<?php require_once __DIR__. "/inc/footer.php"; ?>
