@@ -894,3 +894,26 @@ img.header-decoration {
 }
 
 /* #endregion Plans */
+
+
+/* #gestion utilisateur */
+ 
+.btn-gestion {
+    border: 2px solid #f1f1f1;
+    outline: none;
+    background: transparent;
+    font-size: 24px; /* Reduce the font size */
+    padding: 15px 20px; /* Adjust padding */
+    width: auto; /* Let the width adjust based on content */
+    color: #f1f1f1;
+    cursor: pointer;
+    border-radius: 20px;
+    text-decoration: none;
+}
+
+
+.btn-gestion:hover {
+    transition: all 0.3s ease-in-out;
+    background: #16b95275;
+    color: #f1f1f1;
+}
