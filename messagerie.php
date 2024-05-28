@@ -45,7 +45,7 @@
                 </div>
             </div>
         </div>
-        <form class="messagerie__input">
+        <form class="messagerie__input" id="messagerie__input">
             <textarea id="messagerie__input-text"></textarea> 
         </form>
     </section>

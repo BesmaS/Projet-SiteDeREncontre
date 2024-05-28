@@ -54,34 +54,20 @@ $(document).ready(function()
                 e.preventDefault();
     
                 // A faire, montrer le profile;
-            });;
+            });
         });
     }
 
     function createUserCard(user){
-        var userCardElement = $("<a>").addClass("user-card");
-        userCardElement.attr("id", user.email);
-        
-        /// User Card elements
-        var blockElement = $('<div>').addClass("block");
-    
-        userCardElement.append(blockElement);
-    
-        var pseudoElement = $("<span>").addClass("user-card__pseudo");
-        pseudoElement.text(user.pseudo);
-    
-        userCardElement.append(pseudoElement);
-
-        var ageElement = $("<span>").addClass("user-card__age");
-        ageElement.text(user.age);
-
-        userCardElement.append(ageElement);
-    
-        // Block elements
-        var profilPictureElement = $('<img>').addClass("profil-picture");
-        profilPictureElement.attr("src", "images/default-profil-picture.png")
-    
-        blockElement.append(profilPictureElement);
+        var userCardElement = `
+            <a class="user-card" id="${user.email}">
+                <div class="block">
+                    <img class="profil-picture" src="images/default-profil-picture.png">
+                </div>
+                <span class="user-card__pseudo">${user.pseudo}</span>
+                <span class="user-card__age">${user.age}</span>
+            </a>
+        `;
     
         // Append the anchor element to the document body or any other parent element
         $('#user-cards').append(userCardElement);
