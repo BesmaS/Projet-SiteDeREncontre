@@ -9,7 +9,7 @@
     <div class="container column titre">
         <h1><span>Sp </span><span> <img src="images/logo-Spotilove.png" class="titre-image"></span>
             <span> tiLove</span></h1>
-        <h3>Trouver votre ame soeur parmis des milliers de profil selon vos gout musicaux</h3>
+        <h3>Trouver votre âme sœur parmi des milliers de profils selon vos goûts musicaux</h3>
         <?php if (!isset($_SESSION["email"])) : ?>
             <div class="container">
                 <a href="inscription.php" class="btn-first">S'inscrire</a>
