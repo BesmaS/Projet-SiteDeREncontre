@@ -641,6 +641,8 @@ img.header-decoration {
     margin-left: 20px;
 }
 
+
+
 /* #endregion Catalogue */
 
 /* #region User-card */
@@ -754,7 +756,6 @@ img.header-decoration {
     display: flex;
     justify-content: space-evenly;
     margin-top: 32px;
-    margin-bottom: 16px;
 }
 
 .message-date .ligne {
@@ -933,4 +934,16 @@ img.header-decoration {
     transition: all 0.3s ease-in-out;
     background: #16b95275;
     color: #f1f1f1;
+}
+
+.circle-button {
+    background-color: #121212;
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
 }

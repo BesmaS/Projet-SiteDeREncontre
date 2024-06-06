@@ -4,6 +4,7 @@ $(document).ready(function()
         $("#messagerie__right-sidebar").css("visibility", "collapse");
     }
 
+    // 
     $("#messagerie__input-text").keypress(function (e) {
         var code = (e.keyCode ? e.keyCode : e.which);
         if (code == 13) {
@@ -75,14 +76,15 @@ $(document).ready(function()
         var promises = [];
 
         emails.forEach(email => {
+            
+            // Recuperer les informations de l'utilisateur
             let path = "php/database/" + email.split('.').slice(0, -1).join('.') + "/data.json";
-
             promise = makeAjaxRequestPromise(path, 'GET')
             .then(userJsonData => {
                 createUserProfile(email.split('.').slice(0, -1).join('.'), userJsonData);
             })
             .catch(error => {
-                console.error("Error loading JSON file 1", error);
+                console.error("Error loading User JSON file", error);
             });
 
             promises.push(promise);
@@ -197,7 +199,7 @@ $(document).ready(function()
         
         var newMessageElement = $("<div>", {
             class: "new-message",
-            id: "message-" + newMessage.id
+            id: "message-" + newMessage.id,
         });
         
         if (createHeader == true){
@@ -213,28 +215,39 @@ $(document).ready(function()
         }).appendTo(newMessageElement);
 
         if (createHeader == true) {
+            let path = "php/database/" + newMessage.sender + "/data.json";
+            
+            // Charger le pseudo de l'utilisateur
+            makeAjaxRequestPromise(path, 'GET')
+            .then(user => {
+                newMessageElement.css("margin-top", "16px");
 
-            // new-message-content-header
-            var newMessageContentHeader = $("<span>", { 
-                class: "new-message-content-header"
-            }).appendTo(newMessageContentElement);
+                // new-message-content-header
+                var newMessageContentHeader = $("<span>", { 
+                    class: "new-message-content-header"
+                }).appendTo(newMessageContentElement);
 
-            newMessageContentHeader.append(
-                $("<span>", { class: "new-message-content-header-pseudo", text: "TEST" })
-            );
+                newMessageContentHeader.append(
+                    $("<span>", { class: "new-message-content-header-pseudo", text: user.pseudo })
+                );
 
-            newMessageContentHeader.append(
-                $("<span>", { class: "new-message-content-header-date", text: newMessage.date })
-            );
-
-            newMessageContentHeader.append(
-                $("<span>", { class: "new-message-content-header-time", text: newMessage.time })
-            );
-
-            // new-message-content-text
-            newMessageContentElement.append(
-                $("<span>", { class: "new-message-content-text", text: newMessage.content })
-            );
+                newMessageContentHeader.append(
+                    $("<span>", { class: "new-message-content-header-date", text: newMessage.date })
+                );
+    
+                newMessageContentHeader.append(
+                    $("<span>", { class: "new-message-content-header-time", text: newMessage.time })
+                );
+    
+                // new-message-content-text
+                newMessageContentElement.append(
+                    $("<span>", { class: "new-message-content-text", text: newMessage.content })
+                );
+    
+            })
+            .catch(error => {
+                console.error("Error loading JSON file 2", error);
+            });
         }
         else {
             newMessageContentElement.append(

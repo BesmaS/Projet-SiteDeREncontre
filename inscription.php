@@ -395,7 +395,7 @@
                                 </div>
 
                                 <div class="input-group" id="musique">
-                                    <label>Choissisez vos types de musique favoris</label>
+                                    <label>Choissisez vos types de musique favoris <span class="required">*</span></label>
                                     <div class="input-checkbox-group">
                                         <input type="checkbox" id="rock" name="musique[]" value="Rock"><label for="rock">Rock</label>
                                     </div>

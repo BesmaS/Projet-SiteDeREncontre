@@ -93,6 +93,7 @@ $(document).ready(function()
                 .then(userJsonData => {
                     $('#catalogue__user-information-header-pseudo').text(userJsonData["pseudo"]);
                     $('#catalogue__user-information-header-age').text(calculateAge(userJsonData["date-de-naissance"]));
+                    $('#catalogue__user-information-header-sexe').text(userJsonData["sexe"]);
                     $(".catalogue__user-information").css("visibility", "visible");
                 })
                 .catch(error => {

@@ -275,7 +275,8 @@
                         <div id="catalogue__user-information-header-informations" class="container column">
                             <h1 id="catalogue__user-information-header-pseudo">Pseudo</h1>
                             <h3 id="catalogue__user-information-header-age">Age</h3>
-                            <button id="catalogue__user-information-header-DM-button">Contacter</button>
+                            <h3 id="catalogue__user-information-header-sexe"></h3>
+                            <button id="catalogue__user-information-header-DM-button" class="circle-button">Contacter</button>
                         </div>
                     </div>
                 </div>
