@@ -288,10 +288,10 @@
                     </div>
 
 
-                    <a class="catalogue__user-information-dropdown-tab dropdown-tab"> Physique
+                    <a class="catalogue__user-information-dropdown-tab dropdown-tab" id="catalogue__user-information-physique"> Physique
                     </a>
 
-                    <div class="dropdown-tab-content">
+                    <div class="dropdown-tab-content" id="catalogue__user-information-physique-dropdown-tab-content">
                     </div>
 
                     <a class="catalogue__user-information-dropdown-tab dropdown-tab"> Caractéristiques

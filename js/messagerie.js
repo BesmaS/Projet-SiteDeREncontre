@@ -51,8 +51,8 @@ $(document).ready(function()
 
     getUsersProfile();
 
-    // 
-    //setInterval(loadMessages, 1000)
+
+    setInterval(loadMessages, 1000)
 
     function getUsersProfile()
     {
