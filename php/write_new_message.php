@@ -30,11 +30,11 @@
         $userMessages[] = $newMessage;
         
         // Encode the array back to a JSON string
-        $jsonString = json_encode($userMessages, JSON_PRETTY_PRINT);
+        $userMessagesJson = json_encode($userMessages, JSON_PRETTY_PRINT);
         
         // Save the JSON string back to the file
-        file_put_contents($receverMessagesFolder . $_SESSION["email"] . ".json", $jsonString);
-        file_put_contents($senderMessagesFolder . $_POST["recever"] . ".json", $jsonString);
+        file_put_contents($receverMessagesFolder . $_SESSION["email"] . ".json", $userMessagesJson);
+        file_put_contents($senderMessagesFolder . $_POST["recever"] . ".json", $userMessagesJson);
 
         echo json_encode($newMessage);
         exit;
@@ -44,9 +44,9 @@
     exit;
 
     function checkMessageFolder($user){
-        $messagesFolder = "database\\" . $user . "\\messages\\";
+        $messagesFolder = "php\\database\\" . $user . "\\messages\\";
         if (!file_exists($messagesFolder)) {
-            echo "test";
+            mkdir($messagesFolder, 0777, true);
         }
 
         return $messagesFolder;

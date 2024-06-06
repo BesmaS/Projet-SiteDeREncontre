@@ -96,21 +96,51 @@ function getCurrentDate() {
   return day + '-' + month + '-' + year;
 }
 
+function getDayFromDate(dateStr){
+  var parts = dateStr.split('-');
+
+  var dayString = parts[0];
+
+  return dayString
+}
+
 function getMonthFromDate(dateStr) {
-  const datePattern = /^(\d{2})-(\d{2})-(\d{4})$/;
-  const match = dateStr.match(datePattern);
-  var month = parseInt(match[2], 10);
+  var parts = dateStr.split('-');
+  var monthString = parts[1];
+  var month = parseInt(monthString, 10);
 
   var monthNames = [
     "Janvier", "Février", "Mars", "Avril", "Mai", "Juin",
     "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"
   ];
 
-  if (match) {
+  if (monthString) {
       return monthNames[month];
   } else {
       return null;
   }
+}
+
+function getYearFromDate(dateStr){
+  var parts = dateStr.split('-');
+
+  var yearString = parts[2];
+
+  return yearString
+}
+
+function calculateAge(birthDate) {
+  var birthDateDate = new Date(birthDate);
+  var currentDate = new Date();
+  var age = currentDate.getFullYear() - birthDateDate.getFullYear();
+  var monthDifference = currentDate.getMonth() - birthDateDate.getMonth();
+
+  // Adjust age if birth month hasn't occurred yet this year
+  if (monthDifference < 0 || (monthDifference === 0 && currentDate.getDate() < birthDateDate.getDate())) {
+      age--;
+  }
+
+  return age;
 }
 
 function makeAjaxRequestPromise(url, method, data, processData = true, contentType = 'application/x-www-form-urlencoded; charset=UTF-8') 

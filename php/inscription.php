@@ -9,7 +9,7 @@
         // Vérifie si le dossier "database" existe
         $databaseFolderPath = "php\\database";
         if (!file_exists($databaseFolderPath)) {
-            mkdir('database', 0777, true);
+            mkdir($databaseFolderPath, 0777, true);
         }
 
         // Vérifie si le fichier contenant les utilisateurs existe

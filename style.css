@@ -621,17 +621,24 @@ img.header-decoration {
 .catalogue__user-information {
     display: flex;
     flex-direction: column;
-    visibility: hidden;
+    visibility: collapse;
 }
 
 .catalogue__user-information-header {
-    padding-top: 40px;
     padding-left: 20px;
+}
+
+.catalogue__user-information-header .tab-previous-button {
+    padding-left: 0px;
 }
 
 .catalogue__user-information-header .profil-picture {
     width: 128px;
     height: 128px;
+}
+
+#catalogue__user-information-header-informations {
+    margin-left: 20px;
 }
 
 /* #endregion Catalogue */
@@ -782,6 +789,14 @@ img.header-decoration {
 
 .new-message-content-header + .new-message-content-text {
     margin-top: 16px;
+}
+
+.new-message-content-header-pseudo {
+    margin-right: 10px;
+}
+
+.new-message-content-header-date {
+    margin-right: 10px;
 }
 
 .new-message-header .profil-picture {

@@ -260,14 +260,22 @@
                 </div>
             </div>
  
-            <div id="user-profile" class="catalogue__user-information">
+            <div class="catalogue__user-information">
                 
                 <div class="catalogue__user-information-header">
+                    <button type="button" id="profile-previous-button" class="tab-previous-button">
+                        <span>
+                            <svg>
+                                <path d="M15.957 2.793a1 1 0 0 1 0 1.414L8.164 12l7.793 7.793a1 1 0 1 1-1.414 1.414L5.336 12l9.207-9.207a1 1 0 0 1 1.414 0z"/>
+                            </svg>
+                        </span>
+                    </button>
                     <div class="container">
                         <img class="profil-picture" src="images/default-profil-picture.png"/>
-                        <div class="container column">
-                            <h1>Pseudo</h1>
-                            <h3>Age</h3>
+                        <div id="catalogue__user-information-header-informations" class="container column">
+                            <h1 id="catalogue__user-information-header-pseudo">Pseudo</h1>
+                            <h3 id="catalogue__user-information-header-age">Age</h3>
+                            <button id="catalogue__user-information-header-DM-button">Contacter</button>
                         </div>
                     </div>
                 </div>

@@ -9,16 +9,33 @@ $(document).ready(function()
         if (code == 13) {
             e.preventDefault();
 
+            // Si n'il y a pas eu de message écrit a cette date
+            // Créer l'enête de la date
             if($("#messages-" + getCurrentDate()).length == 0) {
                 createMessageDate($(".messagerie__user-profile.active").attr("id"));
             }
 
-            makeAjaxRequestPromise('/../php/write_new_message.php', 'POST', {newMessage : $("#messagerie__input-text").val(), recever : "foobar_gmail_com"})
+            receverEmail = $(".chat-log").attr("id").replace("-chat-log", "");
+
+            // Créer le nouveau message
+            makeAjaxRequestPromise('/../php/write_new_message.php', 'POST', {newMessage : $("#messagerie__input-text").val(), recever : receverEmail})
             .then(function(response) {
                 console.log(response);
                 if (response != false){
+                    // Créer le nouveau message en HTML et CSS
                     message = JSON.parse(response);
-                    createNewMessage($(".messagerie__user-profile.active").attr("id"), message);
+
+                    let path = "php/database/" + message.sender + "/messages/" + message.recever + ".json";
+                    // Charger les messages
+                    makeAjaxRequestPromise(path, 'GET')
+                    .then(messages => {
+                        createMessage(message, messages);
+                    })
+                    .catch(error => {
+                        console.error("Error loading JSON file 2", error);
+                    });
+
+                    
                 }
                 else {
                 }
@@ -32,6 +49,8 @@ $(document).ready(function()
     });
 
     getUsersProfile();
+
+    setInterval(loadMessages, 1000)
 
     function getUsersProfile()
     {
@@ -71,20 +90,19 @@ $(document).ready(function()
 
         Promise.all(promises)
         .then(() => {
+            // Event lorqu'un profile utilisateur à été cliqué
             $("a.messagerie__user-profile").click( function(e) {
                 e.preventDefault();
 
-                console.log("test");
-
                 $("#messagerie__right-sidebar").css("visibility", "visible");
             
+                // Enlever la class active a tout les classe "a.messagerie__user-profile"
                 $("a.messagerie__user-profile").removeClass("active");
             
-                // Add 'active' class to the clicked element
+                // Ajouter la classe active à l'élément cliqué
                 $(this).addClass("active");
 
                 // Charger les messages de l'utilisateur
-                console.log($(this).attr('id'));
                 $('.chat-log').attr('id', $(this).attr('id') + "-chat-log");
 
                 loadMessages();
@@ -96,33 +114,55 @@ $(document).ready(function()
         });
     }
 
+    // Charger les messages d'un utilisateur
     function loadMessages(){
-        // Récuperer l'email de l'utilisateur connecté
-        makeAjaxRequestPromise('/../php/get_session_email.php', 'GET')
-        .then(function(email) {
-            let path = "php/database/" + email + "/messages/" + $(".messagerie__user-profile.active").attr("id") + ".json";
-            console.log(path);
-            
-            makeAjaxRequestPromise(path, 'GET')
-            .then(messages => {
-                // Créer chaque message
-                messages.forEach(function(message) {
-                    // S'il n'y a pas de message pour date actuelle, créer l'entête pour la date actuelle avant le message
-                    if($("#messages-" + message.date).length == 0) {
-                        createMessageDate($(".messagerie__user-profile.active").attr("id"));
-                    }
-                    // Créer le message
-                    createNewMessage($(".messagerie__user-profile.active").attr("id"), message);
+
+        var receverEmail = $(".messagerie__user-profile.active").attr("id");
+
+        if (receverEmail) {
+            // Récuperer l'email de l'utilisateur connecté
+            makeAjaxRequestPromise('/../php/get_session_email.php', 'GET')
+            .then(function(senderEmail) {
+                let path = "php/database/" + senderEmail + "/messages/" + receverEmail + ".json";
+                console.log(path);
+                
+                // Charger les messages
+                makeAjaxRequestPromise(path, 'GET')
+                .then(messages => {
+                    // Créer chaque message
+                    messages.forEach(function(message) {
+                        createMessage(message, messages);
+                    });
+                })
+                .catch(error => {
+                    console.error("Error loading JSON file 2", error);
                 });
             })
-            .catch(error => {
-                console.error("Error loading JSON file 2", error);
+            .catch(function(error) {
+                console.log(error); 
             });
-        })
-        .catch(function(error) {
-            console.log(error); 
-        });
+        }
     }
+
+    function createMessage(message, messages){
+        var previousMessage = message.id > 0 ? messages[message.id - 1] : null;
+
+        // S'il n'y a pas de message pour date actuelle, créer l'entête pour la date actuelle avant le message
+        if($("#messages-" + message.date).length == 0) {
+            createMessageDate($(".messagerie__user-profile.active").attr("id"));
+        }
+        // Créer le message
+        if($("#message-" + message.id).length == 0) {
+            if (previousMessage == null || previousMessage.sender != message.sender){
+                createNewMessage($(".messagerie__user-profile.active").attr("id"), message, true);
+            }
+            else {
+                createNewMessage($(".messagerie__user-profile.active").attr("id"), message, false);
+            }
+        }
+    }
+
+    /* CSS */
 
     function createUserProfile(email, user){
         var userProfileElement = `
@@ -137,32 +177,74 @@ $(document).ready(function()
     }
 
     function createMessageDate(recever){
-        var messageDateElement = `
-            <div class="message-date" id="messages-${getCurrentDate()}">
-                <div class="ligne"></div>
-                <span class="date">${getCurrentDate()}</span>
-                <div class="ligne"></div>
-            </div>
-        `;
 
-        // esacepeSelector pour le signe "@"
-        $("#" + recever  + "-chat-log").append(messageDateElement);
+        currentDate = getCurrentDate();
+
+        var messageDateElement = $("<div>", {
+            class: "message-date",
+            id: "messages-" + getCurrentDate()
+        }).append(
+            $("<div>", { class: "ligne" }),
+            $("<span>", { class: "date", text: getDayFromDate(currentDate) + " " + getMonthFromDate(currentDate) + " " + getYearFromDate(currentDate) }),
+            $("<div>", { class: "ligne" })
+        );
+        
+        $("#" + recever + "-chat-log").append(messageDateElement);
+        
     }
 
-    function createNewMessage(recever, newMessage){
-        console.log(recever);
-        var newMessageElement = `
-            <div class="new-message" id="message-${newMessage.id}">
-                <div class="new-message-content">
-                    <span class="new-message-content-text">${newMessage.content}</span>
-                </div>
-            </div>
-        `;
+    function createNewMessage(recever, newMessage, createHeader){
+        
+        var newMessageElement = $("<div>", {
+            class: "new-message",
+            id: "message-" + newMessage.id
+        });
+        
+        if (createHeader == true){
+            newMessageElement.append(
+                $("<div>", { class: "new-message-header" }).append(
+                    $("<img>", { class: "profil-picture", src: "images/default-profil-picture.png"})
+                )
+            );
+        }
 
-        // Append the anchor element to the document body or any other parent element
-        // esacepeSelector pour le signe "@"
-        console.log("#" + recever + "-chat-log");
+        var newMessageContentElement = $("<div>", {
+             class: "new-message-content" 
+        }).appendTo(newMessageElement);
+
+        if (createHeader == true) {
+
+            // new-message-content-header
+            var newMessageContentHeader = $("<span>", { 
+                class: "new-message-content-header"
+            }).appendTo(newMessageContentElement);
+
+            newMessageContentHeader.append(
+                $("<span>", { class: "new-message-content-header-pseudo", text: "TEST" })
+            );
+
+            newMessageContentHeader.append(
+                $("<span>", { class: "new-message-content-header-date", text: newMessage.date })
+            );
+
+            newMessageContentHeader.append(
+                $("<span>", { class: "new-message-content-header-time", text: newMessage.time })
+            );
+
+            // new-message-content-text
+            newMessageContentElement.append(
+                $("<span>", { class: "new-message-content-text", text: newMessage.content })
+            );
+        }
+        else {
+            newMessageContentElement.append(
+                $("<span>", { class: "new-message-content-text", text: newMessage.content })
+            );
+        }
+
+        
         $("#" + recever + "-chat-log").append(newMessageElement);
+        
     }
 });
 

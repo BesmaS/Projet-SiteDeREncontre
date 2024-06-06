@@ -9,6 +9,7 @@ $(document).ready(function()
         console.error('Error:', error);
     });
 
+    // Button pour filtrer les utilisateurs
     $('#recherche-button').click(function() {
         
         $("#user-cards").empty();
@@ -22,8 +23,35 @@ $(document).ready(function()
             console.error('Error:', error);
         });
 
+    });
+
+    // Button pour aller en arrière lorsqu'on est dans le profile d'un utilisateur
+    $('#profile-previous-button').click(function() {
+
+        $(".catalogue__user-information").css("visibility", "collapse");
+
+        $("#users").css("visibility", "visible");
 
     });
+
+    // Button pour contacter l'utilisateur dans la messagerie
+    $('#catalogue__user-information-header-DM-button').click(function() {
+        
+        makeAjaxRequestPromise('/../php/contact_user.php', 'POST', {recever : $('.catalogue__user-information').attr('id').replace('-profil', '')})
+        .then(function(response) {
+            console.log(response);
+            if (response != false){
+                // Redirection vers la page messagerie
+                window.location.href='messagerie.php';
+            }
+        })
+        .catch(function(error) {
+            console.log(error);
+        });
+        
+    });
+
+    
 
     function loadUsersCard(users){    
         var promises = [];
@@ -37,6 +65,7 @@ $(document).ready(function()
                 .then(function(response) {
                     console.log(response);
                     if (response != false){
+                        // Créer la carte de l'utilisateur
                         var user = JSON.parse(response);
                         createUserCard(user);
                     }
@@ -54,8 +83,23 @@ $(document).ready(function()
                 e.preventDefault();
 
                 $("#users").css("visibility", "collapse");
+                
+                var email = $(this).attr('id').replace('-card', '');
+                $('.catalogue__user-information').attr('id', email + "-profil");
 
-                $("#user-profile").css("visibility", "visible");
+                let path = "php/database/" + email + "/data.json";
+
+                makeAjaxRequestPromise(path, 'GET')
+                .then(userJsonData => {
+                    $('#catalogue__user-information-header-pseudo').text(userJsonData["pseudo"]);
+                    $('#catalogue__user-information-header-age').text(calculateAge(userJsonData["date-de-naissance"]));
+                    $(".catalogue__user-information").css("visibility", "visible");
+                })
+                .catch(error => {
+                    console.error("Error loading JSON file 1", error);
+                });
+
+                console.log(path);
     
                 console.log("test");
                 // A faire, montrer le profile;
@@ -67,7 +111,7 @@ $(document).ready(function()
         // Create the anchor element
         var $userCardElement = $("<a>", {
             class: "user-card",
-            id: user.email
+            id: user.email.replace(/[^a-zA-Z0-9]/g, '_') + "-card"
         });
 
         // Create the div element with class "block" and append it to the anchor
