@@ -1,5 +1,6 @@
 SpotiLove
 
+This project was made by Abhishek and Besma.
 SpotiLove is a web application for dating based on users' musical tastes. This project allows users to register, log in, manage their profiles, search for other users, subscribe to premium features, and send messages.
 
 Features
