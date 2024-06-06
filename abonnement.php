@@ -21,7 +21,6 @@
                 <li>10 profils par jour</li>
                 <li>Publicité</li>
             </ul>
-            <button>S'inscrire</button>
         </div>
         <div class="plan premium">
             <h2>Premium</h2>
