@@ -24,8 +24,6 @@
         $user['message-accueil'] = $_POST['message-accueil'];
         
 
-        // Add more fields as needed
-
         // Encode user data to JSON
         $json = json_encode($user);
 
@@ -54,7 +52,7 @@
 
 
 
-        <input type="submit" value="Update Profile">
+        <input type="submit" value="Modifier ">
     </form>
 </main>
 <?php require_once __DIR__. "/inc/footer.php"; ?>
