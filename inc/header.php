@@ -13,6 +13,8 @@
                 <!-- Si l'utilisateur est connecté -->
                 <?php if (isset($_SESSION["email"])) : ?>
                     <li><a href="catalogue.php">Catalogue</a></li>
+                    <li><a href="messagerie.php">Messagerie</a></li>
+                    <li><a href="abonnement.php">Abonnements</a></li>
                     <div class="dropdown" style="float:right;">
                         <button class="dropbtn">
                             <!-- <img class="profil-picture" src="images/default-profil-picture.png"/> -->
