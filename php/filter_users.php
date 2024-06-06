@@ -16,7 +16,6 @@
 
             // Physique
 
-
             compareValues($userData["poids"], $searchFormData["poids"], "<=");
             compareStrings($userData["couleur-cheveux"], $searchFormData["couleur-cheveux"]);
             compareStrings($userData["couleur-yeux"], $searchFormData["couleur-yeux"]);
@@ -25,6 +24,10 @@
             
             compareStrings($userData["fumeur"], $searchFormData["fumeur"]);
             
+            //Cathégories 
+
+            containsStrings($userData["musiques"], $searchFormData["musiques"]);
+
             echo json_encode($userData, JSON_PRETTY_PRINT);
             exit;
         }
@@ -73,4 +76,30 @@
             exit;
         }
     }
+
+
+    // returns 0 if element is not in the array
+    function elemInArray($string, $stringList){
+        $longueur_list = count($stringList);
+        for ($i = 0; $i < $longueur_list; $i++) {
+            if (strcasecmp($string, $stringList[$i]) !== 0) {
+                return 1;
+            }
+        }
+        return 0;
+    }
+
+    // Check if each elements in stringList1 is in stringList2
+    // returns 1 if the first list is in the second one 
+    function containsStrings($stringList1, $stringList2){
+        $longueur = count($stringList1);
+        for ($i = 0; $i < $longueur; $i++) {
+            if (elemInArray($stringList1[$i], $stringList2) == 0) {
+                echo 0;
+                exit;
+            }
+        }
+        return 1;
+    }
+    
 ?>
