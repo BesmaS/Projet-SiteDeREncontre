@@ -1,6 +1,8 @@
 <?php
     if(session_status() === PHP_SESSION_NONE) session_start();
 
+    date_default_timezone_set("Europe/Paris");
+
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Le dossier de celui qui envoie le message

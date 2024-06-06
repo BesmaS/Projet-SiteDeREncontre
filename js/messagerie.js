@@ -1,5 +1,9 @@
 $(document).ready(function() 
 {
+    if(!$(".messagerie__user-profile").hasClass("active")){
+        $("#messagerie__right-sidebar").css("visibility", "collapse");
+    }
+
     $("#messagerie__input-text").keypress(function (e) {
         var code = (e.keyCode ? e.keyCode : e.which);
         if (code == 13) {
@@ -9,7 +13,7 @@ $(document).ready(function()
                 createMessageDate($(".messagerie__user-profile.active").attr("id"));
             }
 
-            makeAjaxRequestPromise('/../php/write_new_message.php', 'POST', {newMessage : $("#messagerie__input-text").val(), recever : "foobar@gmail.com"})
+            makeAjaxRequestPromise('/../php/write_new_message.php', 'POST', {newMessage : $("#messagerie__input-text").val(), recever : "foobar_gmail_com"})
             .then(function(response) {
                 console.log(response);
                 if (response != false){
@@ -38,6 +42,7 @@ $(document).ready(function()
             return makeAjaxRequestPromise('/../php/get_files.php', 'POST', {directory : "database/" + response + "/messages/"});
         })
         .then(function(response) {
+            // Les emails qui se trouve dans le dossier "messages"
             var emails = JSON.parse(response);
 
             loadUsersProfile(emails);
@@ -50,65 +55,68 @@ $(document).ready(function()
     function loadUsersProfile(emails){
         var promises = [];
 
-        // Load the JSON file
-        $.getJSON("database/users.json", function(usersJsonData) {
-            
-            // Pour chaque utilisateurs dont l'utilisateur à déjà parler
-            // Charger son profile dans les messages
-            $.each(emails, function(index, value) {
-                var email = value.replace('.json', '');
-                
-                // Si la valeur existe dans users.json
-                if (usersJsonData[email]) {
-                    var userJsonPath = usersJsonData[email];
-                    // Récuperer les données de l'utilisateur
-                    var promise = makeAjaxRequestPromise('/../php/get_user.php', 'POST', {email : email, userJsonPath : userJsonPath})
-                    .then(function(response) {
-                        var user = JSON.parse(response);
-                        createUserProfile(user);
-                    })
-                    .catch(function(error) {
-                        console.log(error); 
-                    });
-                    promises.push(promise);
+        emails.forEach(email => {
+            let path = "database/" + email.split('.').slice(0, -1).join('.') + "/data.json";
 
-                } else {
-                    console.log("Key not found:", email);
-                }
+            promise = makeAjaxRequestPromise(path, 'GET')
+            .then(userJsonData => {
+                createUserProfile(email.split('.').slice(0, -1).join('.'), userJsonData);
+            })
+            .catch(error => {
+                console.error("Error loading JSON file 1", error);
             });
 
-        }).fail(function() {
-            console.error("Error loading JSON file:", jsonFilePath);
+            promises.push(promise);
         });
 
-        Promise.all(promises).then((values) => {
-            $(".messagerie__user-profile").click( function() {
+        Promise.all(promises)
+        .then(() => {
+            $("a.messagerie__user-profile").click( function(e) {
+                e.preventDefault();
+
                 console.log("test");
-        
-                $(".messagerie__user-profile").removeClass("active");
+
+                $("#messagerie__right-sidebar").css("visibility", "visible");
+            
+                $("a.messagerie__user-profile").removeClass("active");
             
                 // Add 'active' class to the clicked element
                 $(this).addClass("active");
+
+                // Charger les messages de l'utilisateur
+                console.log($(this).attr('id'));
+                $('.chat-log').attr('id', $(this).attr('id') + "-chat-log");
+
+                loadMessages();
             });
+        })
+        .catch((error) => {
+            console.error("One or more AJAX requests failed.", error);
+            // Handle the error if any of the requests failed
         });
     }
 
     function loadMessages(){
-
-        makeAjaxRequestPromise('/../php/get_session_email.php', 'GET', null)
+        // Récuperer l'email de l'utilisateur connecté
+        makeAjaxRequestPromise('/../php/get_session_email.php', 'GET')
         .then(function(email) {
-            // Load the JSON file
-            $.getJSON("database/" + email + "/messages/" + $(".messagerie__user-profile.active").attr("id"), function(messages) {
-                // Parcourir chaque message
+            let path = "database/" + email + "/messages/" + $(".messagerie__user-profile.active").attr("id") + ".json";
+            console.log(path);
+            
+            makeAjaxRequestPromise(path, 'GET')
+            .then(messages => {
+                // Créer chaque message
                 messages.forEach(function(message) {
+                    // S'il n'y a pas de message pour date actuelle, créer l'entête pour la date actuelle avant le message
                     if($("#messages-" + message.date).length == 0) {
                         createMessageDate($(".messagerie__user-profile.active").attr("id"));
                     }
+                    // Créer le message
                     createNewMessage($(".messagerie__user-profile.active").attr("id"), message);
                 });
-
-            }).fail(function() {
-                console.error("Error");
+            })
+            .catch(error => {
+                console.error("Error loading JSON file 2", error);
             });
         })
         .catch(function(error) {
@@ -116,9 +124,9 @@ $(document).ready(function()
         });
     }
 
-    function createUserProfile(user){
+    function createUserProfile(email, user){
         var userProfileElement = `
-            <a class="messagerie__user-profile" id="${user.email}">
+            <a class="messagerie__user-profile" id="${email}">
                 <img class="profil-picture" src="images/default-profil-picture.png">
                 <span>${user.pseudo}</span>
             </a>
@@ -138,10 +146,11 @@ $(document).ready(function()
         `;
 
         // esacepeSelector pour le signe "@"
-        $("#" + $.escapeSelector(recever)  + "-chat-log").append(messageDateElement);
+        $("#" + recever  + "-chat-log").append(messageDateElement);
     }
 
     function createNewMessage(recever, newMessage){
+        console.log(recever);
         var newMessageElement = `
             <div class="new-message" id="message-${newMessage.id}">
                 <div class="new-message-content">
@@ -152,7 +161,8 @@ $(document).ready(function()
 
         // Append the anchor element to the document body or any other parent element
         // esacepeSelector pour le signe "@"
-        $("#" + $.escapeSelector(recever) + "-chat-log").append(newMessageElement);
+        console.log("#" + recever + "-chat-log");
+        $("#" + recever + "-chat-log").append(newMessageElement);
     }
 });
 

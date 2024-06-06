@@ -21,7 +21,7 @@
 
     <section id="messagerie__right-sidebar" class="container column">
         <h1>TEST</h1>
-        <div class="messagerie__container" id="doejohn@gmail.com-chat-log">
+        <div class="messagerie__container chat-log">
             <div class="message-date" id="messages-21-05-2024">
                 <div class="ligne"></div>
                 <span class="date">21 Mai 2024</span>
