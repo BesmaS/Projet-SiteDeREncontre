@@ -13,7 +13,7 @@ Administration: Administrators can manage users and ban them if necessary.
 
 Prerequisites
 PHP 7.4 or higher
-Web Server (Apache, Nginx, etc.)
+Web Server (Apache, etc.)
 
 Usage
 Home Page: Go to the home page to see the features available to non-logged-in users.
