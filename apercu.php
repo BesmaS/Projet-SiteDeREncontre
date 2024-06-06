@@ -8,7 +8,7 @@
     require_once __DIR__. "/inc/head.php";
 
     $currentUserEmail = $_SESSION["email"];
-    $json = file_get_contents("php\\database\\$currentUserEmail\\data.json");
+    $json = file_get_contents(__DIR__ . "/php/database/$currentUserEmail/data.json");
     $user = json_decode($json, true);
     if ($user === null) {
         die("Erreur lors de la lecture des données utilisateur.");
@@ -46,24 +46,28 @@
         }
     </style>
 </head>
-<?php require_once __DIR__. "/inc/header.php"; ?>
-
+<body>
+<?php include __DIR__ . "/inc/header.php" ?>
+    
+    <div class="wrapper">
+       
 <main class="apercu">
     <section id="apercu-compte" class="block">
     <h1>Profil</h1>
 
-    <div class="profile-container">
-        <div class="profile-picture">
-        
-        </div>
-        <div class="profile-details">
-            <h2 class="pseudo"><?php echo htmlspecialchars($user['pseudo']); ?></h2>
-            <p><strong>Date de naissance:</strong> <?php echo htmlspecialchars($user['date-de-naissance']); ?></p>
-            <p><strong>Profession:</strong> <?php echo htmlspecialchars($user['profession']); ?></p>
-            <p><strong>Message d'accueil:</strong> <?php echo htmlspecialchars($user['message-accueil']); ?></p>
-            <p><strong>Citation:</strong> <?php echo htmlspecialchars($user['citation']); ?></p>
-        </div>
+<div class="profile-container">
+    <div class="profile-picture">
+        <!-- Vous pouvez ajouter un élément <img> ici pour la photo de profil -->
+        <!-- <img src="path/to/profile-picture.jpg" alt="Photo de profil" /> -->
     </div>
+    <div class="profile-details">
+        <h2 class="pseudo"><?php echo htmlspecialchars($user['pseudo']); ?></h2>
+        <p><strong>Date de naissance:</strong> <?php echo htmlspecialchars($user['date-de-naissance']); ?></p>
+        <p><strong>Profession:</strong> <?php echo htmlspecialchars($user['profession']); ?></p>
+        <p><strong>Message d'accueil:</strong> <?php echo htmlspecialchars($user['message-accueil']); ?></p>
+        <p><strong>Citation:</strong> <?php echo htmlspecialchars($user['citation']); ?></p>
+    </div>
+</div>
     <h1>Compte</h1>
 
         <a href="modifierprofile.php">
@@ -84,4 +88,7 @@
     </section>
 </main>
 
-<?php require_once __DIR__. "/inc/footer.php"; ?>
+    </div>
+<?php 
+    require_once __DIR__. "/inc/footer.php";
+?>
