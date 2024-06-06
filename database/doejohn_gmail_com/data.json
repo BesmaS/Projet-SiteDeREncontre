@@ -3,8 +3,8 @@
     "nom": "",
     "prenom": "",
     "adresse": "",
-    "mot-de-passe": "$2y$10$yju5jstZ3UdjkhF9qCmhDOXRgn7ha4KIPC5I3Hd6bslR\/MqSgprUC",
-    "pseudo": "Doe",
+    "mot-de-passe": "$2y$10$V4npC3wrhBMBMlgV\/b5kDOCZrHsuV.F4X\/rkc0JwOkzUjMPVJ8kaq",
+    "pseudo": "eszfsfe",
     "sexe": "Homme",
     "date-de-naissance": "2003-01-22",
     "profession": "",
@@ -14,13 +14,11 @@
     "couleur-yeux": "Bleu",
     "message-accueil": "",
     "citation": "",
-    "traits": [
-        "Attentionn\u00e9"
-    ],
+    "traits": null,
     "centres": "",
     "fumeur": "Non",
     "musiques": [
-        "Jazz"
+        "Blues"
     ],
     "date-abonemment": "",
     "abonne": "non"

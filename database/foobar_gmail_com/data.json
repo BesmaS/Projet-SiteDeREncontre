@@ -3,8 +3,8 @@
     "nom": "",
     "prenom": "",
     "adresse": "",
-    "mot-de-passe": "$2y$10$6A2l1iw2Wu9JLXyv5d344unNFjxIYnqJEFM.iz.80QEbnX0bd2tsa",
-    "pseudo": "Foo",
+    "mot-de-passe": "$2y$10$JU7nipIbIo3eZH\/eGmySi.vv6taCp2QEv5JpUUGT2JAOyRNUN98w6",
+    "pseudo": "rzefefqssfdse",
     "sexe": "Homme",
     "date-de-naissance": "2003-01-22",
     "profession": "",
@@ -18,7 +18,7 @@
     "centres": "",
     "fumeur": "Non",
     "musiques": [
-        "Reggaeton"
+        "Jazz"
     ],
     "date-abonemment": "",
     "abonne": "non"
