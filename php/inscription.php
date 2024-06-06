@@ -24,7 +24,10 @@
         $email = $_POST['email'];
         if (!array_key_exists($email, $users)){
             
-            $newUserDataFolder =  "database\\" . $email;
+            // Enlever les caractères spéciaux
+            $userJsonFileName = preg_replace('/[^a-zA-Z0-9]/', '_', $email);
+            
+            $newUserDataFolder =  "database\\" . $userJsonFileName;
             // Créer le dossier pour l'utilisateur
             if (!is_dir($newUserDataFolder)) {
                 mkdir($newUserDataFolder, 0777, true);
@@ -63,7 +66,7 @@
                 "abonne" => "non",
             );
 
-            $_SESSION["email"] = $email;
+            $_SESSION["email"] = $userJsonFileName;
 
             // Mettre le chemin du fichier json dans l'email de l'utilisateur dans users.json
             $users[$email] = $newUserJsonPath;

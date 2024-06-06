@@ -28,7 +28,7 @@
                 // Vérifie si le mot de passe correspond bien
                 if (password_verify($password, $passwordHash)) {
 
-                    $_SESSION["email"] = $email;
+                    $_SESSION["email"] = preg_replace('/[^a-zA-Z0-9]/', '_', $email);
 
                     echo 1;
                     return;
