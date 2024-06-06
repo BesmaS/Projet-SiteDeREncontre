@@ -63,7 +63,7 @@
                 "musiques" => $_POST["musique"],
                 "date-abonemment" => "",
                 "abonne" => "non",
-                "ban" => "non";
+                "ban" => "non",
             );
 
             $_SESSION["email"] = $email;
