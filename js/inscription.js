@@ -137,6 +137,7 @@ $(document).ready(function()
     function submitForm(){
         makeAjaxRequestPromise('/../php/inscription.php', 'POST', $('#regForm').serialize())
         .then(function(response){
+            console.log(response);
             if (response == true){
                 window.location.href = 'accueil.php';
             }
@@ -146,9 +147,6 @@ $(document).ready(function()
        });
     }
 
-    // $("#inscription-email").blur(function() {
-    //     validateEmail();
-    // }); 
     function validateEmail(){
         var valid = false;
 

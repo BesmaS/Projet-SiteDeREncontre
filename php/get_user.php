@@ -9,7 +9,7 @@
         $userJsonPath = $_POST["userJsonPath"];
 
         // Si le fichier existe ET si ce n'est pas l'utilisateur connecté
-        if (file_exists($userJsonPath) && strcasecmp($_SESSION["email"], $_POST["email"]) != 0){
+        if (file_exists($userJsonPath) && strcasecmp($_SESSION["email"], preg_replace('/[^a-zA-Z0-9]/', '_', $_POST["email"])) != 0){
 
             // Ouvrir le fichier json
             $userData = file_get_contents($userJsonPath);

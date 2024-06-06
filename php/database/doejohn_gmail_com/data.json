@@ -1,12 +1,12 @@
 {
-    "email": "foobar@gmail.com",
+    "email": "doejohn@gmail.com",
     "nom": "",
-    "prenom": "",
+    "prenom": "test",
     "adresse": "",
-    "mot-de-passe": "$2y$10$JU7nipIbIo3eZH\/eGmySi.vv6taCp2QEv5JpUUGT2JAOyRNUN98w6",
-    "pseudo": "rzefefqssfdse",
+    "mot-de-passe": "$2y$10$VLMwuNKJ59mfWZulYVWDDezf1wty6\/ywYoFlIzTMpXsxKCqH9CGxK",
+    "pseudo": "dqdzq",
     "sexe": "Homme",
-    "date-de-naissance": "2003-01-22",
+    "date-de-naissance": "2003-02-22",
     "profession": "",
     "taille": "160",
     "poids": "15",
@@ -18,8 +18,9 @@
     "centres": "",
     "fumeur": "Non",
     "musiques": [
-        "Jazz"
+        "Blues"
     ],
     "date-abonemment": "",
-    "abonne": "non"
+    "abonne": "non",
+    "ban": "non"
 }

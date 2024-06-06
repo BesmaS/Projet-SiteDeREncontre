@@ -1,10 +1,10 @@
 {
-    "email": "doejohn@gmail.com",
+    "email": "foobar@gmail.com",
     "nom": "",
     "prenom": "",
     "adresse": "",
-    "mot-de-passe": "$2y$10$V4npC3wrhBMBMlgV\/b5kDOCZrHsuV.F4X\/rkc0JwOkzUjMPVJ8kaq",
-    "pseudo": "eszfsfe",
+    "mot-de-passe": "$2y$10$bQJpHtU6NkoFQKTINWRRkOggksVrNAO380ZHzbjuiyT9eAnANPXKS",
+    "pseudo": "dsdqsd",
     "sexe": "Homme",
     "date-de-naissance": "2003-01-22",
     "profession": "",
@@ -18,8 +18,9 @@
     "centres": "",
     "fumeur": "Non",
     "musiques": [
-        "Blues"
+        "Alternatif"
     ],
     "date-abonemment": "",
-    "abonne": "non"
+    "abonne": "non",
+    "ban": "non"
 }

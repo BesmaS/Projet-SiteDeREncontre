@@ -254,13 +254,13 @@
         
         <section id="catalogue__right-sidebar" class="block">
             
-            <div>
+            <div id="users">
                 <h1>Derniers utilisateurs inscrits</h1>
                 <div id="user-cards" class="container">
                 </div>
             </div>
  
-            <!-- <div class="catalogue__user-information">
+            <div id="user-profile" class="catalogue__user-information">
                 
                 <div class="catalogue__user-information-header">
                     <div class="container">
@@ -272,7 +272,7 @@
                     </div>
                 </div>
                 
-            </div> -->
+            </div>
 
         </section>
         

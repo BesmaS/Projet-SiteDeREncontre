@@ -621,6 +621,7 @@ img.header-decoration {
 .catalogue__user-information {
     display: flex;
     flex-direction: column;
+    visibility: hidden;
 }
 
 .catalogue__user-information-header {

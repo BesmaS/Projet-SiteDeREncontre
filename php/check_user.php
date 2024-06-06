@@ -6,7 +6,7 @@
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Vérifie si le dossier "database" existe
-        $databaseFolderPath = "database";
+        $databaseFolderPath = "php\\database";
         if (!file_exists($databaseFolderPath)) {
             // Si non, on retourne que l'utilisateur n'existe pas
             echo 0;
@@ -14,7 +14,7 @@
         }
 
         // Vérifie si le fichier contenant les utilisateurs existe
-        $usersJsonPath = "database\\users.json";
+        $usersJsonPath = $databaseFolderPath . "\\users.json";
         if (!file_exists($usersJsonPath)) {
             // Si non, on retourne que l'utilisateur n'existe pas
             echo 0;

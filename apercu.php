@@ -8,7 +8,7 @@
     require_once __DIR__. "/inc/head.php";
 
     $currentUserEmail = $_SESSION["email"];
-    $json = file_get_contents(__DIR__ . "/database/$currentUserEmail/data.json");
+    $json = file_get_contents("php\\database\\$currentUserEmail\\data.json");
     $user = json_decode($json, true);
     if ($user === null) {
         die("Erreur lors de la lecture des données utilisateur.");

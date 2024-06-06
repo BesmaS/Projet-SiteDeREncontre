@@ -1,6 +1,6 @@
 $(document).ready(function() 
 {
-    fetch('database/users.json')
+    fetch('php/database/users.json')
     .then(response => response.json())
     .then(users => {
         loadUsersCard(users);
@@ -13,7 +13,7 @@ $(document).ready(function()
         
         $("#user-cards").empty();
 
-        fetch('database/users.json')
+        fetch('php/database/users.json')
         .then(response => response.json())
         .then(users => {
             filterUsers(users);
@@ -52,6 +52,10 @@ $(document).ready(function()
         Promise.all(promises).then((values) => {
             $("a.user-card").click(function(e) {
                 e.preventDefault();
+
+                $("#users").css("visibility", "collapse");
+
+                $("#user-profile").css("visibility", "visible");
     
                 console.log("test");
                 // A faire, montrer le profile;

@@ -7,13 +7,13 @@
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Vérifie si le dossier "database" existe
-        $databaseFolderPath = "database";
+        $databaseFolderPath = "php\\database";
         if (!file_exists($databaseFolderPath)) {
             mkdir('database', 0777, true);
         }
 
         // Vérifie si le fichier contenant les utilisateurs existe
-        $usersJsonPath = "database\\users.json";
+        $usersJsonPath = $databaseFolderPath . "\\users.json";
         if (!file_exists($usersJsonPath)) {
             $users = array();
         }
@@ -28,7 +28,7 @@
             // Enlever les caractères spéciaux
             $userJsonFileName = preg_replace('/[^a-zA-Z0-9]/', '_', $email);
             
-            $newUserDataFolder =  "database\\" . $userJsonFileName;
+            $newUserDataFolder =  $databaseFolderPath . "\\" . $userJsonFileName;
             // Créer le dossier pour l'utilisateur
             if (!is_dir($newUserDataFolder)) {
                 mkdir($newUserDataFolder, 0777, true);
@@ -42,7 +42,13 @@
             
             // Chemin du fichier json de l'utilisateur, où ces données sont conservées.
             $newUserJsonPath = $newUserDataFolder . "\\data.json"; 
-            storeProfilePicture($email, $_FILES['profile_picture']);
+            
+            // Stocker la photo profile de l'utilisateur
+            if (!($_FILES['profile_picture']['error'] == 4 || ($_FILES['profile_picture']['size'] == 0 && $_FILES['profile_picture']['error'] == 0)))
+            {
+                // cover_image is empty (and not an error), or no file was uploaded
+                storeProfilePicture($email, $_FILES['profile_picture']);
+            }
 
             $newUser = array(
                 "email" => $email,

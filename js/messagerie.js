@@ -39,7 +39,7 @@ $(document).ready(function()
         makeAjaxRequestPromise('/../php/get_session_email.php', 'GET', null)
         .then(function(response) {
             // Récuperer les fichiers dans le dossier "messages" de l'utilisateur
-            return makeAjaxRequestPromise('/../php/get_files.php', 'POST', {directory : "database/" + response + "/messages/"});
+            return makeAjaxRequestPromise('/../php/get_files.php', 'POST', {directory : "php/database/" + response + "/messages/"});
         })
         .then(function(response) {
             // Les emails qui se trouve dans le dossier "messages"
@@ -56,7 +56,7 @@ $(document).ready(function()
         var promises = [];
 
         emails.forEach(email => {
-            let path = "database/" + email.split('.').slice(0, -1).join('.') + "/data.json";
+            let path = "php/database/" + email.split('.').slice(0, -1).join('.') + "/data.json";
 
             promise = makeAjaxRequestPromise(path, 'GET')
             .then(userJsonData => {
@@ -100,7 +100,7 @@ $(document).ready(function()
         // Récuperer l'email de l'utilisateur connecté
         makeAjaxRequestPromise('/../php/get_session_email.php', 'GET')
         .then(function(email) {
-            let path = "database/" + email + "/messages/" + $(".messagerie__user-profile.active").attr("id") + ".json";
+            let path = "php/database/" + email + "/messages/" + $(".messagerie__user-profile.active").attr("id") + ".json";
             console.log(path);
             
             makeAjaxRequestPromise(path, 'GET')
