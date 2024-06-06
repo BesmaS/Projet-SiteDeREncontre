@@ -1,6 +1,7 @@
 <?php
     // inscription.php
     // Inscrit un nouveau utilisateur dans le site
+    include 'stockerphoto.php';
 
     if(session_status() === PHP_SESSION_NONE) session_start();
 
@@ -41,6 +42,7 @@
             
             // Chemin du fichier json de l'utilisateur, où ces données sont conservées.
             $newUserJsonPath = $newUserDataFolder . "\\data.json"; 
+            storeProfilePicture($email, $_FILES['profile_picture']);
 
             $newUser = array(
                 "email" => $email,
@@ -64,6 +66,7 @@
                 "musiques" => $_POST["musique"],
                 "date-abonemment" => "",
                 "abonne" => "non",
+                "ban" => "non",
             );
 
             $_SESSION["email"] = $userJsonFileName;
