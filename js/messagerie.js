@@ -4,22 +4,17 @@ $(document).ready(function()
         $("#messagerie__right-sidebar").css("visibility", "collapse");
     }
 
-    // 
+    // Entrée de zone de texte pour le nouveau message
     $("#messagerie__input-text").keypress(function (e) {
         var code = (e.keyCode ? e.keyCode : e.which);
+        // Si l'utilisateur a cliqué "Entrée"
         if (code == 13) {
             e.preventDefault();
-
-            // Si n'il y a pas eu de message écrit a cette date
-            // Créer l'enête de la date
-            if($("#messages-" + getCurrentDate()).length == 0) {
-                createMessageDate($(".messagerie__user-profile.active").attr("id"));
-            }
 
             receverEmail = $(".chat-log").attr("id").replace("-chat-log", "");
 
             // Créer le nouveau message
-            makeAjaxRequestPromise('/../php/write_new_message.php', 'POST', {newMessage : $("#messagerie__input-text").val(), recever : receverEmail})
+            makeAjaxRequestPromise('./php/write_new_message.php', 'POST', {newMessage : $("#messagerie__input-text").val(), recever : receverEmail})
             .then(function(response) {
                 console.log(response);
                 if (response != false){
@@ -30,6 +25,11 @@ $(document).ready(function()
                     // Charger les messages
                     makeAjaxRequestPromise(path, 'GET')
                     .then(messages => {
+                        // Si n'il y a pas eu de message écrit a cette date
+                        // Créer l'enête de la date
+                        if($("#messages-" + message.date).length == 0) {
+                            createMessageDate($(".messagerie__user-profile.active").attr("id"), message);
+                        }
                         createMessage(message, messages);
                     })
                     .catch(error => {
@@ -51,15 +51,16 @@ $(document).ready(function()
 
     getUsersProfile();
 
-    setInterval(loadMessages, 1000)
+    // 
+    //setInterval(loadMessages, 1000)
 
     function getUsersProfile()
     {
         // Récuperer l'email de l'utilisateur connecté
-        makeAjaxRequestPromise('/../php/get_session_email.php', 'GET', null)
+        makeAjaxRequestPromise('./php/get_session_email.php', 'GET', null)
         .then(function(response) {
             // Récuperer les fichiers dans le dossier "messages" de l'utilisateur
-            return makeAjaxRequestPromise('/../php/get_files.php', 'POST', {directory : "php/database/" + response + "/messages/"});
+            return makeAjaxRequestPromise('./php/get_files.php', 'POST', {directory : "database/" + response + "/messages/"});
         })
         .then(function(response) {
             // Les emails qui se trouve dans le dossier "messages"
@@ -74,6 +75,8 @@ $(document).ready(function()
 
     function loadUsersProfile(emails){
         var promises = [];
+
+        console.log(emails);
 
         emails.forEach(email => {
             
@@ -97,7 +100,7 @@ $(document).ready(function()
                 e.preventDefault();
 
                 $("#messagerie__right-sidebar").css("visibility", "visible");
-            
+          
                 // Enlever la class active a tout les classe "a.messagerie__user-profile"
                 $("a.messagerie__user-profile").removeClass("active");
             
@@ -123,7 +126,7 @@ $(document).ready(function()
 
         if (receverEmail) {
             // Récuperer l'email de l'utilisateur connecté
-            makeAjaxRequestPromise('/../php/get_session_email.php', 'GET')
+            makeAjaxRequestPromise('./php/get_session_email.php', 'GET')
             .then(function(senderEmail) {
                 let path = "php/database/" + senderEmail + "/messages/" + receverEmail + ".json";
                 console.log(path);
@@ -150,8 +153,9 @@ $(document).ready(function()
         var previousMessage = message.id > 0 ? messages[message.id - 1] : null;
 
         // S'il n'y a pas de message pour date actuelle, créer l'entête pour la date actuelle avant le message
+        console.log(message.date);
         if($("#messages-" + message.date).length == 0) {
-            createMessageDate($(".messagerie__user-profile.active").attr("id"));
+            createMessageDate($(".messagerie__user-profile.active").attr("id"), message);
         }
         // Créer le message
         if($("#message-" + message.id).length == 0) {
@@ -178,16 +182,14 @@ $(document).ready(function()
         $('#profiles').append(userProfileElement);
     }
 
-    function createMessageDate(recever){
-
-        currentDate = getCurrentDate();
+    function createMessageDate(recever, message){
 
         var messageDateElement = $("<div>", {
             class: "message-date",
-            id: "messages-" + getCurrentDate()
+            id: "messages-" + message.date
         }).append(
             $("<div>", { class: "ligne" }),
-            $("<span>", { class: "date", text: getDayFromDate(currentDate) + " " + getMonthFromDate(currentDate) + " " + getYearFromDate(currentDate) }),
+            $("<span>", { class: "date", text: getDayFromDate(message.date) + " " + getMonthFromDate(message.date) + " " + getYearFromDate(message.date) }),
             $("<div>", { class: "ligne" })
         );
         

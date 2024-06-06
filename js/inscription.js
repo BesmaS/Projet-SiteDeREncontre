@@ -21,13 +21,15 @@ $(document).ready(function()
         changerOnglet(-1);
     });
 
+    console.log("test");
+
     // Event pour le button lorsque l'utilisateur entre l'email
     $("#submit-email-button").click(function () {
         var email = $("#inscription-email").val();
         // Si l'email est valide, vérifier si l'email n'est pas déja pris
         if (validateEmail()){
             showLoader("submit-email-button", "loader--1");
-            makeAjaxRequestPromise('/../php/check_user.php', 'POST', {email : email})
+            makeAjaxRequestPromise('./php/check_user.php', 'POST', {email : email})
             .then(function(response) {
                 // Si l'email n'existe pas, passer à l'onglet suivant
                 if (response == false){
@@ -135,7 +137,7 @@ $(document).ready(function()
     }
 
     function submitForm(){
-        makeAjaxRequestPromise('/../php/inscription.php', 'POST', $('#regForm').serialize())
+        makeAjaxRequestPromise('./php/inscription.php', 'POST', $('#regForm').serialize())
         .then(function(response){
             console.log(response);
             if (response == true){

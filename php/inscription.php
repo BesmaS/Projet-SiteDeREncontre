@@ -7,7 +7,7 @@
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Vérifie si le dossier "database" existe
-        $databaseFolderPath = "php\\database";
+        $databaseFolderPath = "database";
         if (!file_exists($databaseFolderPath)) {
             mkdir($databaseFolderPath, 0777, true);
         }

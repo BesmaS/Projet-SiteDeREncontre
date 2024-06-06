@@ -37,7 +37,7 @@ $(document).ready(function()
     // Button pour contacter l'utilisateur dans la messagerie
     $('#catalogue__user-information-header-DM-button').click(function() {
         
-        makeAjaxRequestPromise('/../php/contact_user.php', 'POST', {recever : $('.catalogue__user-information').attr('id').replace('-profil', '')})
+        makeAjaxRequestPromise('./php/contact_user.php', 'POST', {recever : $('.catalogue__user-information').attr('id').replace('-profil', '')})
         .then(function(response) {
             console.log(response);
             if (response != false){
@@ -61,7 +61,7 @@ $(document).ready(function()
             if (users.hasOwnProperty(email)) {
                 var userJsonPath = users[email];
                 // Récuperer les données de l'utilisateur pour creer le user-card
-                var promise = makeAjaxRequestPromise('/../php/get_user.php', 'POST', {email : email, userJsonPath: userJsonPath})
+                var promise = makeAjaxRequestPromise('./php/get_user.php', 'POST', {email : email, userJsonPath: userJsonPath})
                 .then(function(response) {
                     console.log(response);
                     if (response != false){
@@ -150,7 +150,7 @@ $(document).ready(function()
                 // Récuperer les données de l'utilisateur pour creer le user-card avec les options
                 // userJsonPath : Chemin du fichier des données de l'utilisateur
                 // searchFormData : Les données du formulaire permettant de faire le filtrage
-                var promise = makeAjaxRequestPromise('/../php/filter_users.php', 'POST', {userJsonPath: userJsonPath, searchFormData : $('#search-form').serialize()})
+                var promise = makeAjaxRequestPromise('./php/filter_users.php', 'POST', {userJsonPath: userJsonPath, searchFormData : $('#search-form').serialize()})
                 .then(function(response) {
                     console.log(response);
                     if (response != false){

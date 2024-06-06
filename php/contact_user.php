@@ -25,7 +25,7 @@
     exit;
 
     function checkMessageFolder($user){
-        $messagesFolder = "php\\database\\" . $user . "\\messages\\";
+        $messagesFolder =  "database\\" . $user . "\\messages\\";
         if (!file_exists($messagesFolder)) {
             mkdir($messagesFolder, 0777, true);
         }

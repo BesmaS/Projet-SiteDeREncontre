@@ -6,7 +6,7 @@
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Vérifie si le dossier "database" existe
-        $databaseFolderPath = "php\\database";
+        $databaseFolderPath = "database";
         if (!file_exists($databaseFolderPath)) {
             // Si non, on retourne que l'utilisateur n'existe pas
             echo 0;

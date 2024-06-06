@@ -7,7 +7,7 @@
 
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
         // Vérifie si le fichier contenant les utilisateurs existe
-        $usersJsonPath = "php\\database\\users.json";
+        $usersJsonPath =  "database\\users.json";
         if (file_exists($usersJsonPath)) {
             $usersData = file_get_contents($usersJsonPath);
             $users = json_decode($usersData, true);

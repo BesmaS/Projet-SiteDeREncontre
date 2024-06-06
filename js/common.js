@@ -21,7 +21,7 @@ $(document).ready(function()
     // Event pour le button de deconnexion
     $('.logout-button').click(function() {
         // Appel ajax pour appeler la fonction PHP
-        makeAjaxRequestPromise('/../php/deconnexion.php', 'POST', null)
+        makeAjaxRequestPromise('./php/deconnexion.php', 'POST', null)
         .then(function(response){
             // Retour à la page d'accueil
             window.location.href = 'accueil.php';

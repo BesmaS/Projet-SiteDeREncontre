@@ -248,8 +248,6 @@
                 <button class="form-button" type="button" id="recherche-button">Valider</button>
             </form>
 
-            
-
         </section>
         
         <section id="catalogue__right-sidebar" class="block">
@@ -270,15 +268,34 @@
                             </svg>
                         </span>
                     </button>
-                    <div class="container">
-                        <img class="profil-picture" src="images/default-profil-picture.png"/>
-                        <div id="catalogue__user-information-header-informations" class="container column">
-                            <h1 id="catalogue__user-information-header-pseudo">Pseudo</h1>
-                            <h3 id="catalogue__user-information-header-age">Age</h3>
-                            <h3 id="catalogue__user-information-header-sexe"></h3>
-                            <button id="catalogue__user-information-header-DM-button" class="circle-button">Contacter</button>
+                    <div class="container column">
+                        <div class="container">
+                            <img class="profil-picture" src="images/default-profil-picture.png"/>
+                            <div id="catalogue__user-information-header-informations" class="container column">
+                                <h1 id="catalogue__user-information-header-pseudo">Pseudo</h1>
+                                <h3 id="catalogue__user-information-header-age">Age</h3>
+                                <h3 id="catalogue__user-information-header-sexe"></h3>
+                                <button id="catalogue__user-information-header-DM-button" class="circle-button">Contacter</button>
+                            </div>
                         </div>
+                    
                     </div>
+                </div>
+
+                <div class="container column">
+
+                    <a class="catalogue__user-information-dropdown-tab dropdown-tab"> Physique
+                    </a>
+
+                    <a class="catalogue__user-information-dropdown-tab dropdown-tab"> Physique
+                    </a>
+
+                    <a class="catalogue__user-information-dropdown-tab dropdown-tab"> Caractéristiques
+                    </a>
+
+                    <a class="catalogue__user-information-dropdown-tab dropdown-tab"> Goûts musicaux
+                    </a>
+
                 </div>
                 
             </div>
