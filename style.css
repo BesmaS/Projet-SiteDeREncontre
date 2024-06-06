@@ -953,3 +953,16 @@ img.header-decoration {
     margin-top: auto;
     cursor: pointer;
 }
+
+#catalogue__user-information-descriptions {
+    margin-left: 32px;
+    margin-bottom: 16px;
+}
+
+#catalogue__user-information-descriptions h1 {
+    margin-bottom: 8px;
+}
+
+#catalogue__user-information-descriptions p {
+    margin-bottom: 8px;
+}

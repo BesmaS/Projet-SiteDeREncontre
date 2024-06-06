@@ -95,15 +95,31 @@ $(document).ready(function()
                     $('#catalogue__user-information-header-age').text(calculateAge(userJsonData["date-de-naissance"]));
                     $('#catalogue__user-information-header-sexe').text(userJsonData["sexe"]);
                     $(".catalogue__user-information").css("visibility", "visible");
+
+                    if (userJsonData["message-accueil"] != ""){
+                        $("#catalogue__user-information-descriptions").append($("<h1>", { 
+                            text: "Message d'accueil" })
+                        )
+                        $("#catalogue__user-information-descriptions").append($("<p>", { 
+                            text: "\" " + userJsonData["message-accueil"] + " \"" })
+                        )
+                    }
+
+                    if (userJsonData["citation"] != ""){
+                        $("#catalogue__user-information-descriptions").append($("<h1>", { 
+                            text: "Citation" })
+                        )
+                        $("#catalogue__user-information-descriptions").append($("<p>", { 
+                            text: "\" " + userJsonData["citation"] + " \""})
+                        )
+                    }
+
                 })
                 .catch(error => {
                     console.error("Error loading JSON file 1", error);
                 });
 
                 console.log(path);
-    
-                console.log("test");
-                // A faire, montrer le profile;
             });
         });
     }

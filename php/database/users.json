@@ -1,5 +1,6 @@
 {
     "doejohn@gmail.com": "database\\doejohn_gmail_com\\data.json",
     "foobar@gmail.com": "database\\foobar_gmail_com\\data.json",
-    "test@gmail.com": "database\\test_gmail_com\\data.json"
+    "test@gmail.com": "database\\test_gmail_com\\data.json",
+    "test2@gmail.com": "database\\test2_gmail_com\\data.json"
 }

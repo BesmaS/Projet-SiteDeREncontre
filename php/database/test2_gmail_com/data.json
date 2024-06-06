@@ -1,0 +1,28 @@
+{
+    "email": "test2@gmail.com",
+    "nom": "",
+    "prenom": "",
+    "adresse": "",
+    "mot-de-passe": "$2y$10$Gsza4nrV0Ag53z5L2VDtPOPGXmRk8o\/UmkIkZ\/fZoFrfRhMfAasKK",
+    "pseudo": "TEST2",
+    "sexe": "Femme",
+    "date-de-naissance": "2003-01-22",
+    "profession": "",
+    "taille": "160",
+    "poids": "15",
+    "couleur-cheveux": "Noir",
+    "couleur-yeux": "Bleu",
+    "message-accueil": "A",
+    "citation": "B",
+    "traits": [
+        "Honn\u00eate"
+    ],
+    "centres": "",
+    "fumeur": "Non",
+    "musiques": [
+        "Pop"
+    ],
+    "date-abonemment": "",
+    "abonne": false,
+    "ban": false
+}

@@ -71,9 +71,14 @@
                 "fumeur" => $_POST["fumeur"],
                 "musiques" => $_POST["musique"],
                 "date-abonemment" => "",
-                "abonne" => "non",
-                "ban" => false ,
+                "abonne" => false,
+                "ban" => false,
             );
+
+            if ($newUser["sexe"] == "Femme"){
+                $newUser["abonne"] = true; 
+            }
+
 
             $_SESSION["email"] = $userJsonFileName;
 

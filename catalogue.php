@@ -284,11 +284,15 @@
 
                 <div class="container column">
 
-                    <a class="catalogue__user-information-dropdown-tab dropdown-tab"> Physique
-                    </a>
+                    <div id="catalogue__user-information-descriptions">
+                    </div>
+
 
                     <a class="catalogue__user-information-dropdown-tab dropdown-tab"> Physique
                     </a>
+
+                    <div class="dropdown-tab-content">
+                    </div>
 
                     <a class="catalogue__user-information-dropdown-tab dropdown-tab"> Caractéristiques
                     </a>
