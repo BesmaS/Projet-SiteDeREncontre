@@ -4,7 +4,6 @@ function storeProfilePicture($username, $file) {
     $target_dir = "images/profiles/";
 
     // Définir le chemin du fichier cible
-    $target_file = $target_dir . basename($file["name"]);
 
     // Déplacer le fichier uploadé vers le répertoire cible
     if (move_uploaded_file($file["tmp_name"], $target_file)) {
