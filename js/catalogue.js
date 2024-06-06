@@ -53,24 +53,42 @@ $(document).ready(function()
             $("a.user-card").click(function(e) {
                 e.preventDefault();
     
+                console.log("test");
                 // A faire, montrer le profile;
             });
         });
     }
 
     function createUserCard(user){
-        var userCardElement = `
-            <a class="user-card" id="${user.email}">
-                <div class="block">
-                    <img class="profil-picture" src="images/default-profil-picture.png">
-                </div>
-                <span class="user-card__pseudo">${user.pseudo}</span>
-                <span class="user-card__age">${user.age}</span>
-            </a>
-        `;
+        // Create the anchor element
+        var $userCardElement = $("<a>", {
+            class: "user-card",
+            id: user.email
+        });
+
+        // Create the div element with class "block" and append it to the anchor
+        var $blockDiv = $("<div>", { class: "block" }).appendTo($userCardElement);
+
+        // Create the image element with class "profil-picture" and set its src attribute
+        $("<img>", {
+            class: "profil-picture",
+            src: "images/default-profil-picture.png"
+        }).appendTo($blockDiv);
+
+        // Create the span element with class "user-card__pseudo" and set its text
+        $("<span>", {
+            class: "user-card__pseudo",
+            text: user.pseudo
+        }).appendTo($userCardElement);
+
+        // Create the span element with class "user-card__age" and set its text
+        $("<span>", {
+            class: "user-card__age",
+            text: user.age
+        }).appendTo($userCardElement);
     
         // Append the anchor element to the document body or any other parent element
-        $('#user-cards').append(userCardElement);
+        $('#user-cards').append($userCardElement);
     }
 
     function filterUsers(users){
