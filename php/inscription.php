@@ -72,7 +72,7 @@
                 "musiques" => $_POST["musique"],
                 "date-abonemment" => "",
                 "abonne" => "non",
-                "ban" => "non",
+                "ban" => false ,
             );
 
             $_SESSION["email"] = $userJsonFileName;
