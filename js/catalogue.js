@@ -127,34 +127,34 @@ $(document).ready(function()
     }
 
     function createUserCard(user){
-        // Create the anchor element
+        // crée l element
         var $userCardElement = $("<a>", {
             class: "user-card",
             id: user.email.replace(/[^a-zA-Z0-9]/g, '_') + "-card"
         });
 
-        // Create the div element with class "block" and append it to the anchor
+        // Créez l'élément div avec la classe "block" 
         var $blockDiv = $("<div>", { class: "block" }).appendTo($userCardElement);
 
-        // Create the image element with class "profil-picture" and set its src attribute
+        // Créez l'élément image avec la classe "profil-picture" 
         $("<img>", {
             class: "profil-picture",
             src: "images/default-profil-picture.png"
         }).appendTo($blockDiv);
 
-        // Create the span element with class "user-card__pseudo" and set its text
+        // Créez l'élément span avec la classe "user-card__age" et définis le texte
         $("<span>", {
             class: "user-card__pseudo",
             text: user.pseudo
         }).appendTo($userCardElement);
 
-        // Create the span element with class "user-card__age" and set its text
+        // Créez l'élément span avec la classe "user-card__age" et définis le texte
         $("<span>", {
             class: "user-card__age",
             text: user.age
         }).appendTo($userCardElement);
     
-        // Append the anchor element to the document body or any other parent element
+        // Ajoutez l'élément de lien au corps du document ou à tout autre élément parent
         $('#user-cards').append($userCardElement);
     }
 
