@@ -1,6 +1,6 @@
 $(document).ready(function() 
 {
-    ///// https://www.w3schools.com/howto/howto_js_form_steps.asp /////
+
 
     var currentTab = 0; // Current tab is set to be the first tab (0)
 
